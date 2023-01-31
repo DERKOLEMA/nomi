@@ -46,7 +46,7 @@ loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Duderpast/nomi/m
 ```
 
 ### Rook Hub
-Rook Hub is a script hub designed for RP Games containing ACS (Advanced Combat System). It offers a wide selection of games and extensive functionality, including:
+Rook Hub is a **universal** script hub designed for RP Games containing ACS (Advanced Combat System). It offers a wide selection of games and extensive functionality, including:
 - ACS Guns Modification Scripts
 - ACS,RCM Support
 - Detecting different acs versions
