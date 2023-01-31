@@ -71,10 +71,10 @@ loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Duderpast/nomi/m
 
 ## Supported Exploits
 - [Synapse X *V2 / V3*](https://x.synapse.to/)
-- Krnl
-- Fluxus
-- OxygenU
-- Scriptware
+- [Krnl](https://krnl.place/)
+- [Fluxus](https://fluxus.vip/)
+- [OxygenU](https://oxygenu.xyz/)
+- [Script-Ware](https://script-ware.com/)
 
 ## Our Developers
 We have a talented group of developers who are dedicated to improving and expanding our projects.
