@@ -70,7 +70,7 @@ loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Duderpast/nomi/m
 ```
 
 ## Supported Exploits
-- [Synapse X (V2 / V3)] (https://x.synapse.to/)
+- [Synapse X V2 / V3] (https://x.synapse.to/)
 - Krnl
 - Fluxus
 - OxygenU
