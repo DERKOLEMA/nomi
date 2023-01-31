@@ -1,5 +1,6 @@
   <div align="center">
-  <h1>Powered By [Nomi](https://github.com/Duderpast/nomi) Community</h1>    
+  <h1>Powered By [Nomi](https://github.com/Duderpast/nomi) Community
+  </h1>    
 </div>
 
 ```lua
