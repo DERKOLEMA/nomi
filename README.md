@@ -62,7 +62,7 @@ AC6 Engine Hub is designed for Exploiting in games containing AC6 cars system. I
 - Lots Of Features
 You can find more information about AC6 Engine on our [GitHub page](https://github.com/nomi-community/ac6-engine).
 ```lua
-loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Duderpast/ActiveProjects/main/Rp_Games/Loader.lua"))()
+loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Duderpast/nomi/main/universal-ac6-engine/universal-ac6-engine-loader.lua"))()
 ```
 
 
