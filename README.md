@@ -2,7 +2,7 @@
        <!-- PROJECT INFO START -->
         <!-- Repo stars -->
         <a href="https://github.com/Duderpast/nomi/stargazers">
-            <img src="https://img.shields.io/github/stars/latte-soft/maui?label=Stars&logo=GitHub" alt="Repo Stars" />
+            <img src="https://img.shields.io/github/stars/Duderpast/nomi?label=Stars&logo=GitHub" alt="Repo Stars" />
         </a>
         <!-- Repo forks -->
         <a href="https://github.com/Duderpast/nomi/fork">
