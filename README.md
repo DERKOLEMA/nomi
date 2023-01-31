@@ -52,7 +52,7 @@ Rook Hub is a **universal** script hub designed for RP Games containing ACS (Adv
 - Detecting different acs versions
 You can find more information about AC6 Engine on our [GitHub page](https://github.com/nomi-community/rook-hub).
 ```lua
-loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Duderpast/ActiveProjects/main/Rp_Games/Loader.lua"))()
+loadstring(game:HttpGetAsync("https://github.com/Duderpast/nomi/raw/main/rook-hub/rook-hub-loader.lua"))()
 ```
 
 ### Universal AC6 Engine
