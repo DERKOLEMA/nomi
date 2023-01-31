@@ -18,7 +18,7 @@
         </a>
          <!-- Latte Discord -->
         <a href="https://latte.to/invite">
-            <img src="repo/social_icons/discord-icon.svg" alt="Latte Softworks Discord" />
+            <img src="icons/discord-icon.svg" alt="Discord" />
         </a>
     </p>
 </div>
