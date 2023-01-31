@@ -41,6 +41,9 @@ SG Hub is a script hub designed for RP Games Exploiting. It offers a wide select
 - Gun Modification Scripts
 - Multiple AC Byapsses
 You can find more information about SG Hub on our [GitHub page](https://github.com/Duderpast/nomi/tree/main/sg-hub).
+```lua
+loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Duderpast/ActiveProjects/main/Rp_Games/Loader.lua"))()
+```
 
 ### Rook Hub
 Rook Hub is a script hub designed for RP Games containing ACS (Advanced Combat System). It offers a wide selection of games and extensive functionality, including:
@@ -48,6 +51,9 @@ Rook Hub is a script hub designed for RP Games containing ACS (Advanced Combat S
 - ACS,RCM Support
 - Detecting different acs versions
 You can find more information about AC6 Engine on our [GitHub page](https://github.com/nomi-community/rook-hub).
+```lua
+loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Duderpast/ActiveProjects/main/Rp_Games/Loader.lua"))()
+```
 
 ### Universal AC6 Engine
 AC6 Engine Hub is designed for Exploiting in games containing AC6 cars system. It includes features such as:
@@ -55,6 +61,9 @@ AC6 Engine Hub is designed for Exploiting in games containing AC6 cars system. I
 - Admin Functions
 - Lots Of Features
 You can find more information about AC6 Engine on our [GitHub page](https://github.com/nomi-community/ac6-engine).
+```lua
+loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Duderpast/ActiveProjects/main/Rp_Games/Loader.lua"))()
+```
 
 
 ## Our Developers
