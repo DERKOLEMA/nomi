@@ -3,8 +3,8 @@
 </div>
 
 ```lua
-loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Duderpast/nomi/main/rook-hub/rook-hub-loader.lua"))()```
-
+loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Duderpast/nomi/main/rook-hub/rook-hub-loader.lua"))()
+```
 ___
 
 # Universal
