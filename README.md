@@ -16,6 +16,10 @@
         <a href="https://github.com/Duderpast/nomi/commits">
             <img src="https://img.shields.io/github/last-commit/Duderpast/nomi?label=Last%20Modifed" alt="Last Modified" />
         </a>
+         <!-- Latte Discord -->
+        <a href="https://latte.to/invite">
+            <img src="repo/social_icons/discord-icon.svg" alt="Latte Softworks Discord" />
+        </a>
     </p>
 </div>
 
