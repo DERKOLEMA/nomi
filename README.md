@@ -24,9 +24,9 @@
             <img src="https://img.shields.io/github/last-commit/Duderpast/nomi?label=Last%20Modifed" alt="Last Modified" />
         </a>
     </p>
-</div>
 
 Welcome to the Nomi Community! We are a group of developers who are passionate about creating and sharing roblox scripts for various purposes. Our projects can be found on [GitHub](https://github.com) and our [Discord server](https://discord.com).
+</div>
 
 ___
 
