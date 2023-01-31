@@ -1,9 +1,9 @@
   <div align="center">
   <h1>Powered By Nomi Community</h1>    
 </div>
+
 ```lua
 loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Duderpast/nomi/main/rook-hub/rook-hub-loader.lua"))()
-```
 
 ___
 
