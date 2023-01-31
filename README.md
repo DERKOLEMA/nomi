@@ -1,9 +1,11 @@
   <div align="center">
-  <h1>Nomi Community</h1>          
+  <h1>Nomi Community</h1>      
+      <p>
    <!-- Discord -->
         <a href="https://discor.com/invite">
             <img src="icons/discord-icon.svg" alt="Discord" />
         </a>
+            </p>
     <!-- PROJECT INFO START -->
         <!-- Repo stars -->
         <a href="https://github.com/Duderpast/nomi/stargazers">
