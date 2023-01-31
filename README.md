@@ -69,6 +69,12 @@ You can find more information about AC6 Engine on our [GitHub page](https://gith
 loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Duderpast/nomi/main/universal-ac6-engine/universal-ac6-engine-loader.lua"))()
 ```
 
+## Supported Exploits
+- [Synapse X (V2 / V3)] (https://x.synapse.to/)
+- Krnl
+- Fluxus
+- OxygenU
+- Scriptware
 
 ## Our Developers
 We have a talented group of developers who are dedicated to improving and expanding our projects.
