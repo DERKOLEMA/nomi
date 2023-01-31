@@ -1,4 +1,5 @@
-   <h1>Nomi Community</h1>          
+  <div align="center">
+  <h1>Nomi Community</h1>          
    <!-- Discord -->
         <a href="https://discor.com/invite">
             <img src="icons/discord-icon.svg" alt="Discord" />
