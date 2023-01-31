@@ -11,7 +11,7 @@ SG Hub is a script hub designed for RP Games Exploiting. It offers a wide select
 - Autofarms
 - Gun Modification Scripts
 - Multiple AC Byapsses
-You can find more information about SG Hub on our [GitHub page](https://github.com/nomi-community/sg-hub).
+You can find more information about SG Hub on our [GitHub page](https://github.com/nomi/sg-hub).
 
 ### Rook Hub
 Rook Hub is a script hub designed for RP Games containing ACS (Advanced Combat System). It offers a wide selection of games and extensive functionality, including:
