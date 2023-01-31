@@ -2,6 +2,9 @@
 
 Welcome to the Nomi Community! We are a group of developers who are passionate about creating and sharing roblox scripts for various purposes. Our projects can be found on [GitHub](https://github.com) and our [Discord server](https://discord.com).
 
+___
+
+
 ## Projects
 
 Here are some of our popular projects and their functions:
