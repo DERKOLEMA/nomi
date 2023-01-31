@@ -9,8 +9,8 @@ loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Duderpast/nomi/m
 
 # ACS 1.7.5
 * Damage
-   * All
-   * Others
+  * All
+  * Others
 
 [Player]
   * WalkSpeed changer 
