@@ -76,9 +76,6 @@ loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Duderpast/nomi/m
 - [OxygenU](https://oxygenu.xyz/)
 - [Script-Ware](https://script-ware.com/)
 
-## Our Developers
-We have a talented group of developers who are dedicated to improving and expanding our projects.
-
 ## Contribute
 If you want to see more information about our projects, please visit our [Discord server](https://discord.gg/SjppDCSJyr) server.
 
