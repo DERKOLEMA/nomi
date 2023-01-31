@@ -25,7 +25,7 @@
         </a>
     </p>
 
-Welcome to the Nomi Community! We are a group of developers who are passionate about creating and sharing roblox scripts for various purposes. Our projects can be found on [GitHub](https://github.com) and our [Discord server](https://discord.com).
+Welcome to the Nomi Community! We are a group of developers who are passionate about creating and sharing roblox scripts for various purposes. Our projects can be found on [GitHub](https://github.com/Duderpast/nomi) and our [Discord server](https://discord.gg/SjppDCSJyr).
 </div>
 
 ___
@@ -50,7 +50,7 @@ Rook Hub is a **universal** script hub designed for RP Games containing ACS (Adv
 - ACS Guns Modification Scripts
 - ACS,RCM Support
 - Detecting different acs versions
-You can find more information about AC6 Engine on our [GitHub page](https://github.com/nomi-community/rook-hub).
+You can find more information about AC6 Engine on our [GitHub page](https://github.com/Duderpast/nomi/tree/main/rook-hub).
 ```lua
 loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Duderpast/nomi/main/rook-hub/rook-hub-loader.lua"))()
 ```
@@ -60,7 +60,7 @@ AC6 Engine Hub is designed for Exploiting in games containing AC6 cars system. I
 - AC6 Detection
 - Admin Functions
 - Lots Of Features
-You can find more information about AC6 Engine on our [GitHub page](https://github.com/nomi-community/ac6-engine).
+You can find more information about AC6 Engine on our [GitHub page](https://github.com/Duderpast/nomi/tree/main/ac6-engine).
 ```lua
 loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Duderpast/nomi/main/universal-ac6-engine/universal-ac6-engine-loader.lua"))()
 ```
@@ -70,5 +70,5 @@ loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Duderpast/nomi/m
 We have a talented group of developers who are dedicated to improving and expanding our projects.
 
 ## Contribute
-If you want to see more information about our projects, please visit our [Discord server](https://discord.com) server.
+If you want to see more information about our projects, please visit our [Discord server](https://discord.gg/SjppDCSJyr) server.
 
