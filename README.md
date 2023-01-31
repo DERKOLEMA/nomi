@@ -1,14 +1,14 @@
   <div align="center">
   <h1>Nomi Community</h1>      
       <p>
+          <!-- GitHub releases -->
+    <a href="https://github.com/Duderpast/nomi/releases">
+      <img src="icons/github-icon.svg" alt="GitHub Releases" />
+     </a>   
    <!-- Discord -->
         <a href="https://discord.gg/SjppDCSJyr">
             <img src="icons/discord-icon.svg" alt="Discord Server Invite" />
-        </a>
-    <!-- GitHub releases -->
-    <a href="https://github.com/Duderpast/nomi/releases">
-      <img src="icons/github-icon.svg" alt="GitHub Releases" />
-     </a>        
+        </a>     
             </p>
     <!-- PROJECT INFO START -->
         <!-- Repo stars -->
