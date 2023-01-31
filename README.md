@@ -55,3 +55,4 @@ We have a talented group of developers who are dedicated to improving and expand
 
 ## Contribute
 If you want to see more information about our projects, please visit our [Discord server](https://discord.com) server.
+
