@@ -42,7 +42,7 @@ SG Hub is a script hub designed for RP Games Exploiting. It offers a wide select
 - Multiple AC Byapsses
 You can find more information about SG Hub on our [GitHub page](https://github.com/Duderpast/nomi/tree/main/sg-hub).
 ```lua
-loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Duderpast/ActiveProjects/main/Rp_Games/Loader.lua"))()
+loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Duderpast/nomi/main/sg-hub/sg-hub-loader.lua"))()
 ```
 
 ### Rook Hub
