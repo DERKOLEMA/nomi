@@ -6,43 +6,37 @@ loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Duderpast/nomi/m
 
 [Main]
   * ACS Version Detection
+  * Target Selection
 
 # ACS 1.7.5
-* Damage [all, others]
 
-[Player]
-  * WalkSpeed changer 
-  * No client damage - Breaks client damage attempts (no fall damage, etc)
-  * Infinite stamina
-  * Flyspeed 
-  * Fly (keybind) 
-  * Noclip (keybind) 
-  * Car optimization 
-  * Building optimization
-  * Shoot optimization
-  * Decoration optimization
-  * Remove snow
-  * Remove textures
-  * Location teleport - teleports you to GunStore, safezone, team spawns
-  * Players teleport
-  * Save tools - saves your tools
-  * Load tools - gets your saved tools
-  * Save tools on death - saves your tools once you die
-  * Save Position - saves your current position
-  * Load position - teleports to saved position
-    
-[Earnings]
-  * Loader autofarm
-  * Factory autofarm
-  * Miner autofarm
-  * Method (legit, hidden, standart)
-  * Redeem codes
+[Gun Modes]
+  * Inf Ammo
+  * Auto Guns
+  * No Recoil
+  * Firerate
 
+[Players]
+  * Damage player
+  * Surrender player
+  * Explode player
 
-# [Karelian War 2024](https://www.roblox.com/games/10307746753/)
+[Server]
+  * Blackscreen
 
-[Main]
-* Kill all
-* Surrender
-* Explode all
-* God all
+# ACS 2.0.1
+
+[Gun Modes]
+  * Inf Ammo
+  * Auto Guns
+  * No Recoil
+  * Firerate
+
+[Players]
+  * God Player
+  * Damage player
+  * Surrender player
+  * Explode player
+
+[Server]
+  * Blackscreen
