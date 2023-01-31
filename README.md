@@ -2,8 +2,8 @@
   <h1>Nomi Community</h1>      
       <p>
    <!-- Discord -->
-        <a href="https://discor.com/invite">
-            <img src="icons/discord-icon.svg" alt="Discord" />
+        <a href="https://discord.gg/SjppDCSJyr">
+            <img src="icons/discord-icon.svg" alt="Discord Server Invite" />
         </a>
             </p>
     <!-- PROJECT INFO START -->
