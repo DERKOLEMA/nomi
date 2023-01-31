@@ -20,7 +20,7 @@ Rook Hub is a script hub designed for RP Games containing ACS (Advanced Combat S
 - Detecting different acs versions
 You can find more information about AC6 Engine on our [GitHub page](https://github.com/nomi-community/rook-hub).
 
-### AC6 Engine
+### Universal AC6 Engine
 AC6 Engine Hub is designed for Exploiting in games containing AC6 cars system. It includes features such as:
 - AC6 Detection
 - Admin Functions
