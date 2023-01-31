@@ -1,4 +1,27 @@
-# Nomi Community
+   <h1>Nomi Community</h1>
+       <!-- PROJECT INFO START -->
+        <!-- Repo stars -->
+        <a href="https://github.com/latte-soft/maui/stargazers">
+            <img src="https://img.shields.io/github/stars/latte-soft/maui?label=Stars&logo=GitHub" alt="Repo Stars" />
+        </a>
+        <!-- Repo forks -->
+        <a href="https://github.com/latte-soft/maui/fork">
+            <img src="https://img.shields.io/github/forks/latte-soft/maui?label=Fork&logo=GitHub" alt="Repo Forks" />
+        </a>
+        <!-- Latest release -->
+        <a href="https://github.com/latte-soft/maui/releases/latest">
+            <img src="https://img.shields.io/github/v/release/latte-soft/maui?label=Latest%20Release" alt="Latest Release" />
+        </a>
+        <!-- License info -->
+        <a href="https://github.com/latte-soft/maui/blob/master/LICENSE.txt">
+            <img src="https://img.shields.io/github/license/latte-soft/maui?label=License" alt="License" />
+        </a>
+        <!-- Last modified (latest commit) -->
+        <a href="https://github.com/latte-soft/maui/commits">
+            <img src="https://img.shields.io/github/last-commit/latte-soft/maui?label=Last%20Modifed" alt="Last Modified" />
+        </a>
+    </p>
+</div>
 
 Welcome to the Nomi Community! We are a group of developers who are passionate about creating and sharing roblox scripts for various purposes. Our projects can be found on [GitHub](https://github.com) and our [Discord server](https://discord.com).
 
