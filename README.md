@@ -6,15 +6,15 @@
         </a>
         <!-- Repo forks -->
         <a href="https://github.com/Duderpast/nomi/fork">
-            <img src="https://img.shields.io/github/forks/latte-soft/maui?label=Fork&logo=GitHub" alt="Repo Forks" />
+            <img src="https://img.shields.io/github/forks/Duderpast/nomi?label=Fork&logo=GitHub" alt="Repo Forks" />
         </a>
         <!-- Latest release -->
         <a href="https://github.com/Duderpast/nomi/releases/latest">
-            <img src="https://img.shields.io/github/v/release/latte-soft/maui?label=Latest%20Release" alt="Latest Release" />
+            <img src="https://img.shields.io/github/v/release/Duderpast/nomi?label=Latest%20Release" alt="Latest Release" />
         </a>
         <!-- Last modified (latest commit) -->
         <a href="https://github.com/Duderpast/nomi/commits">
-            <img src="https://img.shields.io/github/last-commit/latte-soft/maui?label=Last%20Modifed" alt="Last Modified" />
+            <img src="https://img.shields.io/github/last-commit/Duderpast/nomi?label=Last%20Modifed" alt="Last Modified" />
         </a>
     </p>
 </div>
