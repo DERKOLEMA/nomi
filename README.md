@@ -1,5 +1,9 @@
-   <h1>Nomi Community</h1>
-       <!-- PROJECT INFO START -->
+   <h1>Nomi Community</h1>          
+   <!-- Discord -->
+        <a href="https://discor.com/invite">
+            <img src="icons/discord-icon.svg" alt="Discord" />
+        </a>
+    <!-- PROJECT INFO START -->
         <!-- Repo stars -->
         <a href="https://github.com/Duderpast/nomi/stargazers">
             <img src="https://img.shields.io/github/stars/Duderpast/nomi?label=Stars&logo=GitHub" alt="Repo Stars" />
@@ -15,10 +19,6 @@
         <!-- Last modified (latest commit) -->
         <a href="https://github.com/Duderpast/nomi/commits">
             <img src="https://img.shields.io/github/last-commit/Duderpast/nomi?label=Last%20Modifed" alt="Last Modified" />
-        </a>
-         <!-- Latte Discord -->
-        <a href="https://latte.to/invite">
-            <img src="icons/discord-icon.svg" alt="Discord" />
         </a>
     </p>
 </div>
