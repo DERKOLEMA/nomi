@@ -5,10 +5,10 @@
         <a href="https://discord.gg/SjppDCSJyr">
             <img src="icons/discord-icon.svg" alt="Discord Server Invite" />
         </a>
-    <!-- Github -->
-        <a href="https://discord.gg/SjppDCSJyr">
-            <img src="icons/github-icon.svg" alt="Discord Server Invite" />
-        </a>       
+    <!-- GitHub releases -->
+    <a href="https://github.com/Duderpast/nomi/releases">
+      <img src="icons/github-icon.svg" alt="GitHub Releases" />
+     </a>        
             </p>
     <!-- PROJECT INFO START -->
         <!-- Repo stars -->
