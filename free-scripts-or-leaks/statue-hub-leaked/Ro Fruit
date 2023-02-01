@@ -1,0 +1,146 @@
+if game.GameId == 3904583189 then
+	local mobtable = {}
+	local mobpicked
+	for i, v in pairs(game:GetService("Workspace").Mob:GetChildren()) do
+		if not table.find(mobtable, v.Name) then
+			table.insert(mobtable, v.Name)
+			end
+	end
+	local aftog = false
+	local sc = false
+	local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+	local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
+	local Tab = Window:MakeTab({
+		Name = "Farming",
+		Icon = "rbxassetid://4483345998",
+		PremiumOnly = false
+	})
+	local Misc = Window:MakeTab({
+		Name = "Misc",
+		Icon = "rbxassetid://4483345998",
+		PremiumOnly = false
+	})
+	local tps = {}
+for i, v in pairs(game:GetService("Workspace").SpawnLocation:GetChildren()) do
+   table.insert(tps,v.Name)
+end
+Tab:AddDropdown({
+	Name = "Teleports",
+	Default = "...",
+	Options = tps,
+	Callback = function(Value)
+	    if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
+		game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").SpawnLocation:FindFirstChild(Value).Loc.CFrame
+	end
+	end    
+})
+	
+	OrionLib:MakeNotification({
+		Name = "Thanks For Using Statue Hub",
+		Content = "For Help Dm wowzers!#0560",
+		Image = "rbxassetid://4483345998",
+		Time = 5
+	})
+	local hbe = false
+	Tab:AddToggle({
+		Name = "Auto Farm",
+		Default = false,
+		Callback = function(Value)
+		hbe = Value
+		end    
+	})
+	Misc:AddToggle({
+		Name = "Lag Switch",
+		Default = false,
+		Callback = function(Value)
+		sc = Value
+		end    
+	})
+		Misc:AddToggle({
+		Name = "Katana Shop",
+		Default = false,
+		Callback = function(Value)
+	game:GetService("Players").LocalPlayer.PlayerGui.KatanaShop.Enabled = Value
+		end    
+	})
+		Misc:AddToggle({
+		Name = "Haki Shop",
+		Default = false,
+		Callback = function(Value)
+	game:GetService("Players").LocalPlayer.PlayerGui.HakiShop.Enabled = Value
+		end    
+	})
+			Misc:AddToggle({
+		Name = "Codes",
+		Default = false,
+		Callback = function(Value)
+	game:GetService("Players").LocalPlayer.PlayerGui.Code.BK.Visible = Value
+		end    
+	})
+	local mobpicker = Tab:AddDropdown({
+		Name = "Mobpicker",
+		Default = "1",
+		Options = mobtable,
+		Callback = function(Value)
+			mobpicked = Value
+		end    
+	})
+	
+	Tab:AddButton({
+		Name = "Refresh Mobs",
+		Callback = function()
+			local newmobtable = {}
+			for i, v in pairs(game:GetService("Workspace").Mob:GetChildren()) do
+		if not table.find(newmobtable, v.Name) then
+			table.insert(newmobtable, v.Name)
+			end
+	end
+		 mobpicker:Refresh(newmobtable,true)
+		  end    
+	})
+	Misc:AddButton({
+		Name = "Grab Fruits",
+		Callback = function()
+			for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+				if v.ClassName == "Tool" and v:FindFirstChild("Handle") and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Head then
+				firetouchinterest(v.Handle, game:GetService("Players").LocalPlayer.Character.Head, 0)
+					firetouchinterest(v.Handle, game:GetService("Players").LocalPlayer.Character.Head, 1)
+			
+					end
+				end
+		  end    
+	})
+	game:GetService("RunService").RenderStepped:Connect(function()
+		if sc == true then
+			game:GetService("ReplicatedStorage").Document._DashFolder.DashEvent:FireServer()
+	game:GetService("Players").LocalPlayer.Backpack.Geppo.RemoteEvent:FireServer()
+	
+			end
+	end)
+	game:GetService("RunService").RenderStepped:Connect(function()
+	if hbe == true then
+		game:GetService("ReplicatedStorage").Document.Combat.Combat:FireServer()
+	
+		end
+	end)
+			   
+	game:GetService("RunService").RenderStepped:Connect(function()
+		if hbe == true then
+		for i, v in pairs(game:GetService("ReplicatedStorage").Document.DevilFruit:GetDescendants()) do
+		if v.ClassName == "RemoteEvent" and game:GetService("Players").LocalPlayer.Backpack and v.Parent.Name == game:GetService("Players").LocalPlayer.Data.DevilFruitOwned.Value then
+			v:FireServer()
+			
+			end
+		end
+	   for i, v in pairs(game:GetService("Workspace").Mob:GetDescendants()) do
+		if v.Name == mobpicked and hbe == true and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame 
+	
+	
+		end
+	
+		end
+	end
+	end)
+	OrionLib:Init()
+	end

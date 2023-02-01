@@ -1,0 +1,191 @@
+local gameid = game.PlaceId
+	if gameid == 9872472334 then
+		
+	-- init
+	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
+	local venyx = library.new("Statue Hub", 5013109572)
+	wait(2)
+	-- themes
+	local themes = {
+		Background = Color3.fromRGB(24, 24, 24),
+		Glow = Color3.fromRGB(0, 0, 0),
+		Accent = Color3.fromRGB(10, 10, 10),
+		LightContrast = Color3.fromRGB(20, 20, 20),
+		DarkContrast = Color3.fromRGB(14, 14, 14),  
+		TextColor = Color3.fromRGB(255, 255, 255)
+	}
+	
+	-- first page
+	local page = venyx:addPage("Evade", 5012544693)
+	wait(1)
+	local section1 = page:addSection("Section 1")
+	section1:addButton("FullBright", function()
+		game:GetService("Lighting").FogStart = 0
+		game:GetService("Lighting").ExposureCompensation = 3
+		game:GetService("Lighting").ClockTime = 12
+		game:GetService("Lighting").Brightness = 1
+		game:GetService("Lighting").GlobalShadows = false
+		while wait(.01) do
+			for i, v in pairs(game:GetService("Lighting"):GetDescendants()) do
+				if v.Parent == "Lighting" then
+					v:remove()
+		end
+			end
+	end
+	end)
+	section1:addButton("Knocked God Mode", function()
+		if game:GetService("Players").LocalPlayer:FindFirstChild("Died") then
+	game:GetService("Players").LocalPlayer.Died:remove()
+	end
+	end)
+	section1:addButton("Esp", function()
+	
+	while wait(.1) do
+	
+	for i, v in pairs(game:GetService("Players"):GetChildren()) do
+		if v.ClassName == "Player" and v.Character and v.Character:FindFirstChild("Head") and v.Character:FindFirstChild("Humanoid")then
+	
+	local BillboardGui = Instance.new("BillboardGui")
+	local Name = Instance.new("TextLabel")
+	local Health = Instance.new("TextLabel")
+	local Healthval = Instance.new("TextLabel")
+	BillboardGui.Name = "Esp"
+			BillboardGui.Parent = v.Character.Head
+			BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+			BillboardGui.Active = true
+			BillboardGui.AlwaysOnTop = true
+			BillboardGui.LightInfluence = 1
+			BillboardGui.Size = UDim2.new(0, 200, 0, 50)
+			BillboardGui.StudsOffset = Vector3.new(0, 2, 0)
+			Healthval.Name = "HealthVal"
+			Healthval.Parent = BillboardGui
+			Healthval.BackgroundColor3 = Color3.new(0.141176, 0.141176, 0.141176)
+			Healthval.BackgroundTransparency = 1
+			Healthval.Size = UDim2.new(1, 1, 0, 50)
+			Healthval.Font = Enum.Font.Code
+			Healthval.Text = v.Character.Humanoid.Health
+			Healthval.TextColor3 = Color3.new(0, 0, 0)
+			Healthval.TextSize = 14
+			Healthval.TextXAlignment = Enum.TextXAlignment.Left
+			Healthval.Position = UDim2.new(0, 170, 0, 0)
+			Name.Name = "Name"
+			Name.Parent = BillboardGui
+			Name.BackgroundColor3 = Color3.new(0.141176, 0.141176, 0.141176)
+			Name.BackgroundTransparency = 1
+			Name.Size = UDim2.new(1, 1, 0, 50)
+			Name.Font = Enum.Font.Code
+			Name.Text = v.Name
+			Name.TextColor3 = Color3.new(0, 0, 0)
+			Name.TextSize = 14
+			Name.TextXAlignment = Enum.TextXAlignment.Left
+			local health = "Health"
+			Health.Name = health
+			Health.Parent = BillboardGui
+			Health.BackgroundColor3 = Color3.new(0.141176, 0.141176, 0.141176)
+			Health.BackgroundTransparency = 1
+			Health.Position = UDim2.new(0, 120, 0, 0)
+			Health.Size = UDim2.new(1, 100, 0, 50)
+			Health.Font = Enum.Font.Code
+			Health.Text = "Health"
+			Health.TextColor3 = Color3.new(0, 0, 0)
+			Health.TextSize = 14
+			Health.TextXAlignment = Enum.TextXAlignment.Left
+			if game:GetService("Players").LocalPlayer.Character.Head:FindFirstChild("BillboardGui") then
+				game:GetService("Players").LocalPlayer.Character.Head.BillboardGui:remove()
+				end
+	
+		
+			end
+	end
+		end
+		   
+		while wait() do
+			game:GetService("Players").LocalPlayer.Character.Head.Esp:remove()
+	end
+	while wait() do
+		for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
+			if v.Name == "Esp" then wait(.2) v:remove()
+			end
+		end
+	end
+		while wait() do
+			if game:GetService("Players").LocalPlayer.Character.Head:FindFirstChild("Esp") then
+				game:GetService("Players").LocalPlayer.Character.Head.Esp:remove()
+				end
+	end
+	end)
+	section1:addButton("Bot Esp", function()
+	while wait(5) do
+	for i,v in pairs(game:GetService("Workspace").Game.Players:GetDescendants()) do
+		if v.Name == "HRP" then
+	 local esp = Instance.new("Highlight")
+	 esp.Name = "Highlights"
+	 esp.FillTransparency = 0
+	 esp.FillColor = Color3.new(0, 0, 1)
+	 esp.OutlineColor = Color3.new(1, 0.333333, 1)
+	 esp.OutlineTransparency = 0.4
+	 esp.Parent = v
+	 v.Transparency = 0
+		end
+	end
+	end
+	end)
+	
+	section1:addButton("My Reused Hover + Speed thingy (x)", function()
+		getgenv().AutowalkToggled = false;
+	local Player = game:GetService('Players').LocalPlayer;
+	local Camera = workspace.Camera;
+	local Speed = 200;
+	
+	game:GetService'RunService'.RenderStepped:Connect(function()
+		if (getgenv().AutowalkToggled == true and Player.Character and Player.Character:FindFirstChild('HumanoidRootPart')) then
+			Player.Character.HumanoidRootPart.Velocity = Player.Character.HumanoidRootPart.CFrame.LookVector * Speed;
+		end;
+	end)
+	
+	Player:GetMouse().KeyDown:connect(function(key)
+	if key == "x" then
+	 getgenv().AutowalkToggled = not getgenv().AutowalkToggled;
+	end
+	end)
+	end)
+	section1:addButton("My Reused Fly (z)", function()
+	
+	getgenv().Toggled = false;
+	local Player = game:GetService('Players').LocalPlayer;
+	local Camera = workspace.Camera;
+	local Speed = 250;
+	
+	game:GetService'RunService'.RenderStepped:Connect(function()
+		if (getgenv().Toggled == true and Player.Character and Player.Character:FindFirstChild('HumanoidRootPart')) then
+			Player.Character.HumanoidRootPart.Velocity = Camera.CFrame.LookVector * Speed;
+		end;
+	end)
+	
+	Player:GetMouse().KeyDown:connect(function(key)
+	if key == "z" then
+	 getgenv().Toggled = not getgenv().Toggled;
+	end
+	end)
+	
+	end)
+	section1:addKeybind("Hide/Show GUI", Enum.KeyCode.LeftAlt, function()
+	
+		venyx:toggle()
+	end, function()
+	
+	end)
+	-- second page
+	local theme = venyx:addPage("Theme", 5012544693)
+	local colors = theme:addSection("Colors")
+	
+	for theme, color in pairs(themes) do -- all in one theme changer, i know, im cool
+		colors:addColorPicker(theme, color, function(color3)
+			venyx:setTheme(theme, color3)
+		end)
+	end
+	
+	-- load
+	venyx:SelectPage(venyx.pages[1], true)
+	
+		end

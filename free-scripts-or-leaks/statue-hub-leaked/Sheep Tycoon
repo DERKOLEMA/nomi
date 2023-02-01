@@ -1,0 +1,115 @@
+if game.PlaceId == 10903978962 then
+		local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Statue Hub I Sheep Tycoon 🐑", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local Section = Tab:AddSection({
+	Name = "Main"
+})
+local af
+Tab:AddToggle({
+	Name = "Auto Farm",
+	Default = false,
+	Callback = function(Value)
+		af = Value
+	end    
+})
+game:GetService("RunService").Heartbeat:Connect(function()
+    if af == true and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Head then
+for i, v in pairs(game:GetService("Workspace").Tycoon.Tycoons:GetDescendants()) do
+    if v.Name == "Upgrade" then
+    game:GetService("ReplicatedStorage").Signals.RemoteEvents.PutRemote:FireServer()
+        firetouchinterest(game:GetService("Players").LocalPlayer.Character.Head, v.Head, 0)
+                firetouchinterest(game:GetService("Players").LocalPlayer.Character.Head, v.Head, 1)
+                local args = {
+    [1] = 18,
+    [2] = Vector3.new()
+}
+
+game:GetService("ReplicatedStorage").Signals.RemoteEvents.GetWoolRemote:FireServer(unpack(args))
+
+        end
+end
+end
+end)
+game:GetService("RunService").Heartbeat:Connect(function()
+    if af == true and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Head then
+
+        firetouchinterest(game:GetService("Players").LocalPlayer.Character.Head, game:GetService("Workspace").Obby.Money.Finish, 0)
+                firetouchinterest(game:GetService("Players").LocalPlayer.Character.Head, game:GetService("Workspace").Obby.Money.Finish, 1)
+                end
+end)
+
+		end
+		
+		if game.PlaceId == 10675042838 then
+		local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Statue Hub I Lemonade Tycoon 🍋", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local auto_harvest
+local Tab = Window:MakeTab({
+    Name = "Auto Farm",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+Tab:AddToggle({
+    Name = "Auto Harvest",
+    Default = false,
+    Callback = function(Value)
+    auto_harvest = Value
+    end    
+})
+game:GetService("RunService").RenderStepped:Connect(function()
+if auto_harvest == true then
+for i, v in pairs(game:GetService("Workspace").Tycoons:GetDescendants()) do
+    if v.Name == "Tree1" or  v.Name == "Tree2" or  v.Name == "Tree3" or  v.Name == "Tree4" or  v.Name == "Tree5" or  v.Name == "Tree6" or v.Name == "Tree7" or v.Name == "Tree8" or v.Name == "Tree9" or v.Name == "Tree10" or v.Name == "Tree11" or v.Name == "Tree12" or v.Name == "Tree13" or v.Name == "Tree14" or v.Name == "Tree15" or v.Name == "Tree16" or v.Name == "Tree17" or v.Name == "Tree18" or v.Name == "Tree19" or v.Name == "Tree20"  then
+    local args = {
+        [1] = v
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Remotes.Harvest:FireServer(unpack(args))
+end
+end
+
+end
+
+end)
+local Tab = Window:MakeTab({
+    Name = "Misc",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+--anti afk should work testing
+Tab:AddButton({
+	Name = "Anti Afk",
+	Callback = function()
+    local vu = game:GetService("VirtualUser")
+    game:GetService("Players").LocalPlayer.Idled:connect(function()
+        vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+    wait(1)
+    vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+    end)
+  	end    
+})
+Tab:AddBind({
+	Name = "Panic!",
+	Default = Enum.KeyCode.L,
+	Hold = false,
+	Callback = function()
+        game.Players.LocalPlayer:Kick("You clicked the panic keybind Rejoin once your friends stop seeing you exploiting ;)")
+	end    
+})
+local Tab = Window:MakeTab({
+    Name = "Movement",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+Tab:AddButton({
+	Name = "Walkspeed",
+	Callback = function()
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50
+  	end    
+})
+		end

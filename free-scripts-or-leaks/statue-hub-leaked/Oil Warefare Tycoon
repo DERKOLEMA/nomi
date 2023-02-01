@@ -1,0 +1,214 @@
+if game.GameId == 4639625707 then
+		local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
+getgenv().Toggled = false;
+	local Player = game:GetService('Players').LocalPlayer;
+	local Camera = workspace.Camera;
+	local FlySpeed = 150;
+	local autofarmt7 = false
+	local UIS = game:GetService("UserInputService")
+	local holdingWKey = false
+	local holdingSKey = false
+	
+	
+	
+	UIS.InputBegan:Connect(function(inputObject) 
+		if(inputObject.KeyCode==Enum.KeyCode.W)then
+			holdingWKey = true
+	
+		end
+	end)
+	
+	UIS.InputEnded:Connect(function(inputObject)
+		if(inputObject.KeyCode==Enum.KeyCode.W)then
+			holdingWKey = false
+		end
+	end)
+	
+	
+	UIS.InputBegan:Connect(function(inputObject) 
+		if(inputObject.KeyCode==Enum.KeyCode.S)then
+			holdingSKey = true
+	
+		end
+	end)
+	
+	UIS.InputEnded:Connect(function(inputObject)
+		if(inputObject.KeyCode==Enum.KeyCode.S)then
+			holdingSKey = false
+		end
+	end)
+	
+	
+	
+	
+	game:GetService'RunService'.RenderStepped:Connect(function()
+		if (getgenv().Toggled == true and Player.Character and Player.Character:FindFirstChild('HumanoidRootPart')) then
+	if holdingWKey == true then
+	Player.Character.HumanoidRootPart.Velocity = Camera.CFrame.LookVector * FlySpeed;
+	end
+	if holdingSKey == true then
+	  Player.Character.HumanoidRootPart.Velocity = Camera.CFrame.LookVector * FlySpeed * -1;
+	
+	end
+	
+	if holdingSKey == false and holdingWKey == false then
+		Player.Character.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
+	end
+	end
+	
+	end)
+	
+	game:GetService'RunService'.RenderStepped:Connect(function()
+		if (getgenv().Toggled == true and Player.Character and Player.Character:FindFirstChild('HumanoidRootPart')) then
+			Player.Character.HumanoidRootPart.Velocity = Camera.CFrame.LookVector * FlySpeed;
+		end;
+	end)
+--req.Bullets = 5
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+local Fly = Tab:AddToggle({
+	Name = "Fly",
+	Default = false,
+	Callback = function(Value)
+	getgenv().Toggled = Value
+	end    
+})
+Tab:AddBind({
+	Name = "Fly Keybind",
+	Default = Enum.KeyCode.Z,
+	Hold = false,
+	Callback = function()
+	if getgenv().Toggled == true then
+	    Fly:Set(false)
+	    else
+	        Fly:Set(true)
+	end
+    
+
+	end    
+})
+local SpeedAmt
+Tab:AddSlider({
+	Name = "Speed",
+	Min = 0,
+	Max = 100,
+	Default = 5,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Studs/s",
+	Callback = function(Value)
+	SpeedAmt = Value
+	end    
+})
+local LoopSpeed = false
+local Speed = Tab:AddToggle({
+	Name = "Speed",
+	Default = false,
+	Callback = function(Value)
+	LoopSpeed = Value
+	end    
+})
+Tab:AddBind({
+	Name = "Speed Keybind",
+	Default = Enum.KeyCode.H,
+	Hold = false,
+	Callback = function()
+	if LoopSpeed == true then
+	    Speed:Set(false)
+	    else
+	        Speed:Set(true)
+	end
+    
+
+	end    
+})
+game:GetService("RunService").RenderStepped:Connect(function()
+    if LoopSpeed == true and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Humanoid then
+        game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = SpeedAmt
+        end
+    end)
+
+
+Tab:AddButton({
+	Name = "Mod Gun",
+	Callback = function()
+      			    for i, v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
+	        	if v.Name == "Settings" and v.Parent.Parent.Parent.ClassName == "Tool" then
+	        	local mscript = v
+local req = require(mscript)
+req.Ammo = math.huge
+req.BSpeed = math.huge
+req.FireRate = math.huge
+req.SuppressMaxDistance = math.huge
+req.AutoChamber = true
+local mt = getrawmetatable(game)
+local __oldIndex = mt.__index
+local __oldNewIndex = mt.__newindex
+
+if setreadonly then setreadonly(mt, false) else make_writeable(mt) end
+
+mt.__index = newcclosure(function(a, k)
+    if not checkcaller() then
+        if tostring(a) == "Zeroing" then
+            if k == "Value" then
+                return math.huge;
+            end
+        end
+    end
+    return __oldIndex(a, k)
+end)
+
+
+local mt = getrawmetatable(game)
+local __oldIndex = mt.__index
+local __oldNewIndex = mt.__newindex
+
+if setreadonly then setreadonly(mt, false) else make_writeable(mt) end
+
+mt.__index = newcclosure(function(a, k)
+    if not checkcaller() then
+        if tostring(a) == "Ammo" then
+            if k == "Value" then
+                return math.huge;
+            end
+        end
+    end
+    return __oldIndex(a, k)
+end)
+
+
+req.Distance = math.huge
+req.BulletPenetration = math.huge
+req.FallOfDamage = 0
+req.MinSpread = 0
+req.MaxSpread = 0.000000000000000000000000000000000000000000000000001
+req.AimInaccuracyStepAmount = 0
+req.VPunchBase = 0
+	req.HPunchBase = 0
+req.DPunchBase = 0
+req.CanBreachDoor = true
+req.FireModes.ChangeFiremode = true
+req.FireModes.Auto = true
+req.FireModes.Explosive = true
+req.FireModes.Burst = true
+req.FireModes.Semi = true
+req.BurstShot = math.huge
+req.ExplosiveHit = true
+
+
+	GunFOVReduction = 0
+		Chambered = true
+	        end
+
+	    end    
+end
+  	
+})
+
+		end

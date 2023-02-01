@@ -1,0 +1,98 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local ac = false
+local af = false
+local scrasher = false
+local A = Window:MakeTab({
+	Name = "Player",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local Speed = false
+_G.Speedamt = 0
+
+
+A:AddToggle({
+	Name = "Max Speed",
+	Default = false,
+	Callback = function(Value)
+		Speed = Value
+	end    
+})
+A:AddSlider({
+	Name = "Amount",
+	Min = 0,
+	Max = 500000,
+	Default = 32,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "WalkSpeed",
+	Callback = function(Value)
+		_G.Speedamt = Value
+	end    
+})
+local Tab = Window:MakeTab({
+	Name = "Farming",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+Tab:AddToggle({
+	Name = "Auto Farm",
+	Default = false,
+	Callback = function(Value)
+		af = Value
+	end    
+})
+local ac
+local clicker = Tab:AddToggle({
+	Name = "Auto Clicker",
+	Default = false,
+	Callback = function(Value)
+ac = Value
+end    
+})
+
+Tab:AddBind({
+	Name = "Auto Click",
+	Default = Enum.KeyCode.T,
+	Hold = false,
+	Callback = function()
+	if ac == true then
+    clicker:Set(false)
+    else
+        clicker:Set(true)
+    end
+	end    
+})
+
+
+local mouse = game.Players.LocalPlayer:GetMouse()
+local VIM = game:GetService("VirtualInputManager")
+game:GetService("RunService").Heartbeat:Connect(function()
+if ac == true then
+mouse = game.Players.LocalPlayer:GetMouse()
+VIM:SendMouseButtonEvent(mouse.X,mouse.Y,0,true,game,0)
+VIM:SendMouseButtonEvent(mouse.X,mouse.Y,0,false,game,0)
+end
+end)
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    if af == true then
+for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do 
+    if v.Name == "End" then 
+        firetouchinterest(v, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, 0)
+        firetouchinterest(v, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, 1)
+    end
+    end
+end
+end)
+game:GetService("RunService").Heartbeat:Connect(function()
+if Speed == true and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Humanoid then
+    game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = _G.Speedamt
+    else
+        
+         game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = game:GetService("Players").LocalPlayer.PlayerGui.MainUI.MainMenu.BotMenu.Accelerator.MaxSpeed.Text
+        end
+end)

@@ -1,0 +1,208 @@
+if game.PlaceId == 9648883891 then
+	wait(2)
+
+	
+			
+			-- init
+			local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
+			local venyx = library.new("Statue Hub", 5013109572)
+			local AutoCollect = false
+			local ab = false
+			-- themes
+			local themes = {
+				Background = Color3.fromRGB(24, 24, 24),
+				Glow = Color3.fromRGB(0, 0, 0),
+				Accent = Color3.fromRGB(10, 10, 10),
+				LightContrast = Color3.fromRGB(20, 20, 20),
+				DarkContrast = Color3.fromRGB(14, 14, 14),  
+				TextColor = Color3.fromRGB(255, 255, 255)
+			}
+	
+		local lp = game:GetService("Players").LocalPlayer
+	
+       
+		game:GetService("RunService").Heartbeat:Connect(function()
+			if AutoCollect == true then
+                game:GetService("ReplicatedStorage").RemoteObjects.CollectedMoney:FireServer()	
+				end
+			end)
+			-- first page
+			local page = venyx:addPage("Festival Tycoon", 5012544693)
+	
+			local section1 = page:addSection("Automation")
+					local section2 = page:addSection("Misc")
+	
+			
+	
+			section1:addToggle("Auto Collect", nil, function(actog)
+				AutoCollect = actog
+			end)
+          
+            section1:addButton("Infinite Money", function()
+                local args = {
+                    [1] = math.huge
+                }
+                
+                game:GetService("ReplicatedStorage").RemoteObjects.DanceGameCash:FireServer(unpack(args))
+                
+            end)
+            section1:addButton("Auto Buy", function()
+                for i, v in pairs(game:GetService("Workspace").Buttons:GetDescendants()) do if v.Parent.Parent.Name == "Buttons" then 
+                    local args = {
+                        [1] = v.Name
+                    }
+                    
+                    game:GetService("ReplicatedStorage").RemoteObjects.RequestButtonPurchase:FireServer(unpack(args))
+                    end
+                    end
+            end)
+
+            section1:addButton("Auto Find Chainsmokers", function()
+                local args = {
+                    [1] = "Alex"
+                }
+                
+                game:GetService("ReplicatedStorage").RemoteObjects.UnlockedChainsmoker:FireServer(unpack(args))
+                local args = {
+                    [1] = "Andrew"
+                }
+                
+                game:GetService("ReplicatedStorage").RemoteObjects.UnlockedChainsmoker:FireServer(unpack(args))
+                local args = {
+                    [1] = "Matt"
+                }
+                
+                game:GetService("ReplicatedStorage").RemoteObjects.UnlockedChainsmoker:FireServer(unpack(args))
+                local args = {
+                    [1] = "Rhett"
+                }
+                
+                game:GetService("ReplicatedStorage").RemoteObjects.UnlockedChainsmoker:FireServer(unpack(args))
+                
+                end)
+			
+			section2:addSlider("WalkSpeed", 0, 1, 200, function(value)
+	if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Humanoid then
+	game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = value
+	end
+	end)
+	
+	
+	
+			section2:addKeybind("Hide/Show GUI", Enum.KeyCode.LeftAlt, function()
+	
+			venyx:toggle()
+		end, function()
+	
+		end)
+			-- second page
+			local theme = venyx:addPage("Theme", 5012544693)
+			local colors = theme:addSection("Colors")
+	
+			for theme, color in pairs(themes) do -- all in one theme changer, i know, im cool
+				colors:addColorPicker(theme, color, function(color3)
+					venyx:setTheme(theme, color3)
+				end)
+			end
+	
+			-- load
+			venyx:SelectPage(venyx.pages[1], true)
+		end
+	if game.PlaceId == 10347946161 then
+	
+	local autosell = false
+		local AutoBuy = false
+		game:GetService("RunService").Heartbeat:Connect(function()
+			if autosell == true then
+			game:GetService("ReplicatedStorage").Knit.Services.TycoonService.RE.SellRats:FireServer()
+			end
+			end)
+	
+			wait(1)
+			-- init
+			local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
+			local venyx = library.new("Statue Hub", 5013109572)
+			local AutoCollect = false
+			local nftsniper = false
+			local excfq = 2
+			-- themes
+			local themes = {
+				Background = Color3.fromRGB(24, 24, 24),
+				Glow = Color3.fromRGB(0, 0, 0),
+				Accent = Color3.fromRGB(10, 10, 10),
+				LightContrast = Color3.fromRGB(20, 20, 20),
+				DarkContrast = Color3.fromRGB(14, 14, 14),  
+				TextColor = Color3.fromRGB(255, 255, 255)
+			}
+	
+		local lp = game:GetService("Players").LocalPlayer
+	
+		game:GetService("RunService").Heartbeat:Connect(function()
+	if AutoBuy == true then
+		if game:GetService("CoreGui"):FindFirstChild("PurchasePrompt") then
+			game:GetService("CoreGui").PurchasePrompt:remove()
+			end
+		local head = game:GetService("Players").LocalPlayer.Character.Head
+		for i, v in pairs(game:GetService("Workspace").Tycoons:GetDescendants()) do if v.Name == "Hitbox" then
+			firetouchinterest(v, head, 0)
+			firetouchinterest(v, head, 1)
+		end
+		end
+	end
+	
+	end)
+		game:GetService("RunService").Heartbeat:Connect(function()
+			if AutoCollect == true then
+			for i, v in pairs(game:GetService("Workspace").Tycoons:GetDescendants()) do
+			  if v.Parent.Name == "Rats" and v.ClassName == "Model" then 
+			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v.Part.Position)
+			  end
+	
+	
+				end
+			end
+			end)
+			-- first page
+			local page = venyx:addPage("Rat Washing Tycoon", 5012544693)
+	
+			local section1 = page:addSection("Automation")
+					local section2 = page:addSection("Misc")
+	
+			section1:addToggle("Auto Sell", nil, function(astog)
+	autosell = astog
+			end)
+	
+			section1:addToggle("Auto Collect", nil, function(actog)
+				AutoCollect = actog
+			end)
+			section1:addToggle("Auto Buy", nil, function(abtog)
+				AutoBuy = abtog
+			end)
+			section1:addSlider("WalkSpeed", 0, 1, 200, function(value)
+	if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Humanoid then
+	game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = value
+	end
+	end)
+	
+	
+	
+			section2:addKeybind("Hide/Show GUI", Enum.KeyCode.LeftAlt, function()
+	
+			venyx:toggle()
+		end, function()
+	
+		end)
+			-- second page
+			local theme = venyx:addPage("Theme", 5012544693)
+			local colors = theme:addSection("Colors")
+	
+			for theme, color in pairs(themes) do -- all in one theme changer, i know, im cool
+				colors:addColorPicker(theme, color, function(color3)
+					venyx:setTheme(theme, color3)
+				end)
+			end
+	
+			-- load
+			venyx:SelectPage(venyx.pages[1], true)
+		end
+		wait(1)

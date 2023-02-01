@@ -1,0 +1,66 @@
+if game.PlaceId == 11105076407 then
+local click = function()
+    game:GetService("ReplicatedStorage").Packages.Knit.Services.ClickingService.RF.Click:InvokeServer()
+end
+local tpend = function()
+ plr = game:service"Players".LocalPlayer;
+	local tween_s = game:service"TweenService";
+	local info = TweenInfo.new(1,Enum.EasingStyle.Linear);
+	function tp(...)
+	   local tic_k = tick();
+	   local params = {...};
+	   local cframe = CFrame.new(params[1],params[2],params[3]);
+	   local tween,err = pcall(function()
+		   local tween = tween_s:Create(plr.Character["HumanoidRootPart"],info,{CFrame=cframe});
+		   tween:Play();
+		   tween.Completed:Wait()
+	   end)
+	   if not tween then return err end
+	end
+	tp(-58, 3, 3);
+	tp(616323, 7, -3)
+end
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+OrionLib:MakeNotification({
+	Name = "Made By wowzers!#0560 on discord!",
+	Content = "Thanks For Using Statue Hub!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+local ac
+local aw
+Tab:AddToggle({
+	Name = "Auto Click",
+	Default = false,
+	Callback = function(Value)
+	ac = Value
+	end    
+})
+Tab:AddToggle({
+	Name = "Auto Win",
+	Default = false,
+	Callback = function(Value)
+	aw = Value
+	end    
+})
+
+game:GetService("RunService").Heartbeat:Connect(function()
+    if ac == true then
+        click()
+        end
+end)
+
+OrionLib:Init()
+while task.wait(2) and aw == true do
+tpend()
+        
+        
+    end
+end

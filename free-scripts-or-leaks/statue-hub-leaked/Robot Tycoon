@@ -1,0 +1,295 @@
+local tycoon = "None"
+
+local infmoney = function()
+    local args = {
+    [1] = "Head",
+    [2] = 1,
+    [3] = -math.huge,
+    [4] = "Upgrade1"
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.BattleBotLevelUp:FireServer(unpack(args))
+
+end
+local infgems = function()
+
+local args = {
+    [1] = -math.huge,
+    [2] = "LeftArm"
+}
+
+game:GetService("ReplicatedStorage").RemoteFunctions.UnlockUpgrades:InvokeServer(unpack(args))
+
+
+end
+local upgradelarm = function()
+         local args = {
+    [1] = "LeftArm",
+    [2] = 1,
+    [3] = 0,
+    [4] = "Upgrade1"
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.BattleBotLevelUp:FireServer(unpack(args))
+
+end
+local upgraderarm = function() 
+         local args = {
+    [1] = "LeftArm",
+    [2] = 1,
+    [3] = 0,
+    [4] = "Upgrade1"
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.BattleBotLevelUp:FireServer(unpack(args))
+
+end
+local upgradelleg = function()
+    local args = {
+    [1] = "LeftLeg",
+    [2] = 0,
+    [3] = 0,
+    [4] = "Upgrade1"
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.BattleBotLevelUp:FireServer(unpack(args))
+end
+local upgraderleg = function()
+    local args = {
+    [1] = "RightLeg",
+    [2] = 0,
+    [3] = 0,
+    [4] = "Upgrade1"
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.BattleBotLevelUp:FireServer(unpack(args))
+    end
+local upgradehead = function()
+     local args = {
+    [1] = "Head",
+    [2] = 1,
+    [3] = 0,
+    [4] = "Upgrade1"
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.BattleBotLevelUp:FireServer(unpack(args))
+
+end
+local upgradetorso = function()
+    local args = {
+    [1] = "Torso",
+    [2] = 2,
+    [3] = 0,
+    [4] = "Upgrade1"
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.BattleBotLevelUp:FireServer(unpack(args))
+    end
+local upgradea = function()
+    
+        local args = {
+    [1] = "Head",
+    [2] = 1,
+    [3] = 0,
+    [4] = "Upgrade1"
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.BattleBotLevelUp:FireServer(unpack(args))
+
+local args = {
+    [1] = 4,
+    [2] = "Dragon Fire Sword",
+    [3] = 0
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.SwordPurchased:FireServer(unpack(args))
+
+local args = {
+    [1] = "RightLeg",
+    [2] = 0,
+    [3] = 0,
+    [4] = "Upgrade1"
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.BattleBotLevelUp:FireServer(unpack(args))
+
+local args = {
+    [1] = "LeftLeg",
+    [2] = 0,
+    [3] = 0,
+    [4] = "Upgrade1"
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.BattleBotLevelUp:FireServer(unpack(args))
+local args = {
+    [1] = "RightArm",
+    [2] = 2,
+    [3] = 0,
+    [4] = "Upgrade1"
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.BattleBotLevelUp:FireServer(unpack(args))
+local args = {
+    [1] = "LeftArm",
+    [2] = 2,
+    [3] = 0,
+    [4] = "Upgrade1"
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.BattleBotLevelUp:FireServer(unpack(args))
+local args = {
+    [1] = "Torso",
+    [2] = 2,
+    [3] = 0,
+    [4] = "Upgrade1"
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.BattleBotLevelUp:FireServer(unpack(args))
+local args = {
+    [1] = 16,
+    [2] = "SwordOfTheSeas",
+    [3] = 0
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.SwordPurchased:FireServer(unpack(args))
+end
+local checkowner = function()
+    for i, v in pairs(game:GetService("Workspace").Tycoons:GetDescendants()) do 
+        if v.Name == "OwnerValue" and tycoon == "None" and v.Value == game.Players.LocalPlayer then
+            tycoon = v.Parent
+            end
+        end
+end
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Infinite Money",
+	Callback = function()
+     infmoney()
+  	end    
+})
+Tab:AddButton({
+	Name = "Infinite Gems",
+	Callback = function()
+     infgems()
+  	end    
+})
+local tycoonnoti = Tab:AddParagraph("Auto Buy Requires Initilization","Current Tycoon: "..tycoon)
+local ab
+Tab:AddToggle({
+	Name = "Auto Buy",
+	Default = false,
+	Callback = function(Value)
+	ab = Value
+	end    
+})
+local upg = Window:MakeTab({
+	Name = "Upgrades",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local au
+upg:AddParagraph("All Upgrades Are Free","Use As Much As U Want")
+upg:AddToggle({
+	Name = "Auto Upgrade",
+	Default = false,
+	Callback = function(Value)
+		au = Value
+	end    
+})
+
+upg:AddButton({
+	Name = "Upgrade Head",
+	Callback = function()
+      upgradehead()
+  	end    
+})
+upg:AddButton({
+	Name = "Upgrade Torso",
+	Callback = function()
+      upgradetorso()
+  	end    
+})
+
+upg:AddButton({
+	Name = "Upgrade Left Leg",
+	Callback = function()
+      upgradelleg()
+  	end    
+})
+
+upg:AddButton({
+	Name = "Upgrade Right Leg",
+	Callback = function()
+      upgraderleg()
+  	end    
+})
+
+upg:AddButton({
+	Name = "Upgrade Right Arm",
+	Callback = function()
+      upgraderarm()
+  	end    
+})
+upg:AddButton({
+	Name = "Upgrade Left Arm",
+	Callback = function()
+      upgradelarm()
+  	end    
+})
+
+
+local init = Window:MakeTab({
+	Name = "Init",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+init:AddButton({
+	Name = "Check Tycoon",
+	Callback = function()
+	    
+checkowner()
+
+if tycoon ~= "None" then
+tycoonnoti:Set("Succesful Initilization, Tycoon: "..tycoon.Name,"Succesful Initilization")
+
+OrionLib:MakeNotification({
+	Name = "Tycoon Status:",
+	Content = "Current Detected Tycoon: "..tycoon.Name,
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+else
+    OrionLib:MakeNotification({
+	Name = "Tycoon Initilization Failed",
+	Content = "Either Im Bad At Scripting Or U Havent Claimed A Tycoon",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end
+
+  	end    
+})
+
+game:GetService("RunService").Heartbeat:Connect(function()
+    if  task.wait(1) and au == true then
+        upgradea()
+        end
+end)
+game:GetService("RunService").Heartbeat:Connect(function()
+if task.wait(1) and ab == true and tycoon ~= "None" and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character.HumanoidRootPart  then
+    for i, v in pairs(tycoon.Buttons:GetChildren()) do
+        if v:FindFirstChild("Head") then
+            firetouchinterest(v.Head, game.Players.LocalPlayer.Character.HumanoidRootPart, 0)
+                        firetouchinterest(v.Head, game.Players.LocalPlayer.Character.HumanoidRootPart, 1)
+
+            end
+        end
+    end
+end)

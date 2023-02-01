@@ -1,0 +1,97 @@
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+local Window = Rayfield:CreateWindow({
+	Name = "Statue Hub",
+	LoadingTitle = "Statue Hub",
+	LoadingSubtitle = "Made By wowzers!#0560",
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = nil, -- Create a custom folder for your hub/game
+		FileName = "Statue Hub"
+	},
+        Discord = {
+        	Enabled = false,
+        	Invite = "sirius", -- The Discord invite code, do not include discord.gg/
+        	RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+        },
+	KeySystem = false, -- Set this to true to use our key system
+	KeySettings = {
+		Title = "Sirius Hub",
+		Subtitle = "Key System",
+		Note = "Join the discord (discord.gg/sirius)",
+		FileName = "SiriusKey",
+		SaveKey = true,
+		GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+		Key = "Hello"
+	}
+})
+local Tab = Window:CreateTab("Main", 4483362458) -- Title, Image
+local af
+local hook
+local instakill
+hook = hookmetamethod(game, "__namecall", newcclosure(function(self, ...)
+    local Args = {...}
+   
+    local method = getnamecallmethod()
+    if not checkcaller() and self.Name == "RemoteEvent_ShootFastCastProjectile" and method == "FireServer" and instakill == true then
+
+Args[9].MinDamage = 1000000000000000000000000000000000000
+Args[9].MaxDamage = 10000000000000000000000000000000000000000
+Args[9].CriticalMultiplier = 1500
+       return hook(self, table.unpack(Args));
+
+    end
+    return hook(self, ...)
+    
+end))
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Win (tp bullets)",
+	CurrentValue = false,
+	Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+af = Value
+	end,
+})
+local Toggle = Tab:CreateToggle({
+	Name = "Instakill",
+	CurrentValue = false,
+	Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+instakill = Value
+	end,
+})
+local Toggle = Tab:CreateToggle({
+	Name = "Allow Walk On Ground",
+	CurrentValue = false,
+	Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+		game:GetService("Workspace").ScrollingTerrainBounds.Ground.CanTouch = not Value
+	end,
+})
+game.RunService.Heartbeat:Connect(function()
+	if af == true then
+for i, v in pairs(game:GetService("Workspace").Multipods:GetChildren()) do
+if v:FindFirstChildOfClass("Part") and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool"):FindFirstChild("Handle"):FindFirstChild("Attachment_Muzzle") then
+		local args = {
+			[1] = 1,
+			[2] = v:FindFirstChildOfClass("Part").Position,
+			[3] = Vector3.new(-0.9456344246864319, -0.055125776678323746, -0.3205256164073944),
+			[4] = 500,
+			[5] = 1.5804954993894607,
+			[6] = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool"):FindFirstChild("Handle"):FindFirstChild("Attachment_Muzzle"),
+			[7] = 1,
+			[8] = 0,
+			[9] = {
+				["MaxDamageRange"] = 10000000000000000000000,
+				["MaxDamage"] = 100000000000000000000000,
+				["MinDamageRange"] = 1,
+				["MinDamage"] = 1000000000000000000000000000000000,
+				["CriticalMultiplier"] = 1500
+			}
+		}
+		
+		game:GetService("ReplicatedStorage").Weapons_ReplicatedStorage.RemoteEvent_ShootFastCastProjectile:FireServer(unpack(args))
+		
+	end	
+end
+end
+end)

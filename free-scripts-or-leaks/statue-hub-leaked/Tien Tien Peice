@@ -1,0 +1,123 @@
+if game.PlaceId == 8704181738 then
+	
+		-- init
+		local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
+		local venyx = library.new("Statue Hub", 5013109572)
+		
+		-- themes
+		local themes = {
+			Background = Color3.fromRGB(24, 24, 24),
+			Glow = Color3.fromRGB(0, 0, 0),
+			Accent = Color3.fromRGB(10, 10, 10),
+			LightContrast = Color3.fromRGB(20, 20, 20),
+			DarkContrast = Color3.fromRGB(14, 14, 14),  
+			TextColor = Color3.fromRGB(255, 255, 255)
+		}
+		
+		-- first page
+		local page = venyx:addPage("Tien Tien Piece", 5012544693)
+		local section1 = page:addSection("Character Mods")
+		local section2 = page:addSection("Automation")
+		
+		section2:addToggle("Auto Skill", nil, function(spellspamtog)
+			spellspam = spellspamtog
+		end)
+		section1:addButton("Extend Hitboxes", function()
+			while wait(1) do
+		
+			if game:GetService("Players").LocalPlayer.Character then
+				for i ,v in pairs(game:GetService("Workspace"):GetDescendants()) do 
+			if v.Name == "HumanoidRootPart" and v.Parent:FindFirstChild("Humanoid") and v ~= game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
+				v.Size = Vector3.new(20, 20, 20)
+				v.Transparency = .8
+				v.CanCollide = false
+			
+			end
+			end
+			end
+		end
+		
+		end)
+			section2:addButton("Auto Gacha", function()
+	
+	game:GetService("RunService").Heartbeat:Connect(function()
+		fireclickdetector(game:GetService("Workspace").BMP.ClickPart.ClickDetector)
+	end)
+	
+	end)
+		section2:addButton("Auto Melee Stat", function()
+			game:GetService("RunService").Heartbeat:Connect(function()
+	local args = {
+		[1] = "Melee"
+	}
+	
+	game:GetService("ReplicatedStorage").StatSystem.Points:FireServer(unpack(args))
+	
+	end)
+		end)
+		section2:addButton("Auto Attack", function()
+			while wait() do
+				if game:GetService('Players').LocalPlayer.Character then
+				for i, v in pairs(game:GetService('Players').LocalPlayer.Character:GetDescendants()) do
+					if v.Name == "Handle" and v.Parent:FindFirstChild("Combo") then
+				local args = {
+					[1] = v
+				}
+				
+				game:GetService("Players").LocalPlayer.Character.Katana.Combo.C0:FireServer(unpack(args))
+				end
+				end
+				end
+				end
+		end)
+		section1:addKeybind("Hide/Show GUI", Enum.KeyCode.LeftAlt, function()
+	
+		venyx:toggle()
+	end, function()
+	
+	end)
+		-- second page
+		local theme = venyx:addPage("Theme", 5012544693)
+		local colors = theme:addSection("Colors")
+		
+		for theme, color in pairs(themes) do -- all in one theme changer, i know, im cool
+			colors:addColorPicker(theme, color, function(color3)
+				venyx:setTheme(theme, color3)
+			end)
+		end
+		while wait(.6) do
+			if spellspam == true then
+			
+			for i ,v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do 
+		if v.Name == "Fire" or v.Name == "RemoteEvent" or v.Name == "RemoteEventS" then
+		local args = {
+			[1] = game:GetService("Players").LocalPlayer
+		}
+		
+		v:FireServer(unpack(args))
+		
+		local args = {
+			[1] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+		}
+		
+		v:FireServer(unpack(args))
+		v:FireServer()
+		local args = {
+			[1] = CFrame.new(Vector3.new(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame), Vector3.new(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)),
+			[2] = Vector3.new(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+		}
+		
+		v:FireServer(unpack(args))
+		local args = {
+			[1] = CFrame.new(Vector3.new(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame), Vector3.new(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)),
+			[2] = Vector3.new(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position)
+		}
+		
+		v:FireServer(unpack(args))
+		end
+		end
+		end
+		end
+		-- load
+		venyx:SelectPage(venyx.pages[1], true)
+		end
