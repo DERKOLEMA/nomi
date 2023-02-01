@@ -1,0 +1,46 @@
+local cf
+game:GetService("RunService").Heartbeat:Connect(function()
+for i, v in pairs(game:GetService("Workspace").Game.Halloween.Candy.CandyDrops:GetChildren()) do
+	if cf == true then
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame + Vector3.new(0,4,0)
+
+
+
+
+	game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new()
+	firetouchinterest(v, game.Players.LocalPlayer.Character.HumanoidRootPart, 0)
+	firetouchinterest(v, game.Players.LocalPlayer.Character.HumanoidRootPart, 1)
+
+	end
+	
+	end
+end)
+local tpcandy = function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(694, 20, -4456)
+end
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+OrionLib:MakeNotification({
+	Name = "Candy Farm",
+	Content = "sometimes candy dont register so like yeah",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
+local Tab = Window:MakeTab({
+	Name = "Farming",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddButton({
+	Name = "Tp To Candy Store",
+	Callback = function()
+      		tpcandy()
+  	end    
+})
+Tab:AddToggle({
+	Name = "Candy Farm",
+	Default = false,
+	Callback = function(Value)
+		cf = Value
+	end    
+})

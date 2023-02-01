@@ -1,0 +1,79 @@
+local infmoney
+local loopupgradead
+local upgradehd = function()
+	local args = {
+		[1] = "HardDrive",
+		[2] = game:GetService("Players").LocalPlayer.Data.HardDriveLevel.Value
+	}
+	
+	game:GetService("ReplicatedStorage").Events.UpgradeItem:FireServer(unpack(args))
+	
+end
+local upgradeadvert = function()
+	local args = {
+		[1] = "Advertising",
+		[2] = game:GetService("Players").LocalPlayer.Data.AdvertisingLevel.Value
+	}
+	
+	game:GetService("ReplicatedStorage").Events.UpgradeItem:FireServer(unpack(args))
+	end
+	game:GetService("RunService").Heartbeat:Connect(function()
+		if infmoney == true then
+		game:GetService("ReplicatedStorage").Events.UploadCurrentMemes:FireServer()
+		end
+		end)
+
+		local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+		local Window = Rayfield:CreateWindow({
+			Name = "Statue Hub",
+			LoadingTitle = "Statue Hub",
+			LoadingSubtitle = "by wowzers!#0560 and statuescripts",
+			ConfigurationSaving = {
+				Enabled = true,
+				FolderName = "Statue Hub", -- Create a custom folder for your hub/game
+				FileName = "Memes at 3am"
+			},
+				Discord = {
+					Enabled = true,
+					Invite = "Bqkz5gwaDv", -- The Discord invite code, do not include discord.gg/
+					RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+				},
+			KeySystem = false, -- Set this to true to use our key system
+			KeySettings = {
+				Title = "Sirius Hub",
+				Subtitle = "Key System",
+				Note = "Join the discord (discord.gg/sirius)",
+				FileName = "SiriusKey",
+				SaveKey = true,
+				GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+				Key = "Hello"
+			}
+		})
+		local Tab = Window:CreateTab("Farming", 4483362458) -- Title, Image
+		local UPG = Window:CreateTab("Upgrades", 4483362458) -- Title, Image
+		local Button = Tab:CreateButton({
+			Name = "Spawn mony",
+			Callback = function()
+				game:GetService("ReplicatedStorage").Events.UploadCurrentMemes:FireServer()
+			end,
+		})local Toggle = Tab:CreateToggle({
+			Name = "Loop Spawn Money",
+			CurrentValue = false,
+			Flag = "LSMONEY", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+			Callback = function(Value)
+			infmoney = Value
+			end,
+		})
+		local LOOPUPGAD = UPG:CreateToggle({
+			Name = "Upgrade Ad",
+			CurrentValue = false,
+			Flag = "ADUPGRADE", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+			Callback = function(Value)
+			loopupgradead = Value
+			end,
+		})
+		game:GetService("RunService").Heartbeat:Connect(function()
+				if loopupgradead == true then
+				upgradeadvert()
+				end
+		end)

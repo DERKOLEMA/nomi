@@ -1,0 +1,114 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local ac = false
+local af = false
+local scrasher = false
+local A = Window:MakeTab({
+	Name = "Player",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local Speed = false
+_G.Speedamt = 0
+
+
+A:AddToggle({
+	Name = "WalkSpeed",
+	Default = false,
+	Callback = function(Value)
+		Speed = Value
+	end    
+})
+A:AddSlider({
+	Name = "Amount",
+	Min = 0,
+	Max = 200,
+	Default = 32,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "WalkSpeed",
+	Callback = function(Value)
+		_G.Speedamt = Value
+	end    
+})
+local Tab = Window:MakeTab({
+	Name = "Farming",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+OrionLib:MakeNotification({
+	Name = "Loaded",
+	Content = "Successfully Loaded Nic Hub",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+Tab:AddToggle({
+	Name = "Auto Farm",
+	Default = false,
+	Callback = function(Value)
+		af = Value
+	end    
+})
+Tab:AddToggle({
+	Name = "Auto Click",
+	Default = false,
+	Callback = function(Value)
+		ac = Value
+	end    
+})
+game:GetService("RunService").RenderStepped:Connect(function()
+    if ac == true then
+ local args = {
+    [1] = "ClickPower",
+    [2] = math.huge
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.Rocket_RemoteEvent:FireServer(unpack(args))
+  
+end
+end)
+game:GetService("RunService").RenderStepped:Connect(function()
+    if af == true then
+    local args = {
+        [1] = "CheckAdd",
+        [2] = 10,
+        [3] = 1,
+        [4] = 1
+    }
+    
+    game:GetService("ReplicatedStorage").RemoteEvents.Star_RemoteEvent:FireServer(unpack(args))    
+    local args = {
+    [1] = "Use",
+    [2] = "1"
+}
+
+game:GetService("ReplicatedStorage").RemoteFuncs.Item_RemoteFunc:InvokeServer(unpack(args))
+local args = {
+    [1] = "Use",
+    [2] = "2"
+}
+
+game:GetService("ReplicatedStorage").RemoteFuncs.Item_RemoteFunc:InvokeServer(unpack(args))
+local args = {
+    [1] = "Use",
+    [2] = "3"
+}
+
+game:GetService("ReplicatedStorage").RemoteFuncs.Item_RemoteFunc:InvokeServer(unpack(args))
+local args = {
+    [1] = "Use",
+    [2] = "4"
+}
+
+game:GetService("ReplicatedStorage").RemoteFuncs.Item_RemoteFunc:InvokeServer(unpack(args))
+
+end
+end)
+game:GetService("RunService").Heartbeat:Connect(function()
+if Speed == true and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Humanoid then
+    game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = _G.Speedamt
+    else
+         game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = 32
+        end
+end)

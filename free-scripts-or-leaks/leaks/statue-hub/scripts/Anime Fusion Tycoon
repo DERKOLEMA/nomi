@@ -1,0 +1,76 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
+local Tab = Window:MakeTab({
+	Name = "Farming",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+OrionLib:MakeNotification({
+	Name = "Made By wowzers!#0560",
+	Content = "Thanks For Using Statue Hub",
+	Image = "rbxassetid://4483345998",
+	Time = 50
+})
+OrionLib:MakeNotification({
+	Name = "VOLUME WARNING",
+	Content = "SOME SETTINGS WILL EXPLODE UR EARS YOU HAVE BEEN WARNED TURN UR VOLUME DOWN TO 0",
+	Image = "rbxassetid://4483345998",
+	Time = 100
+})
+local im
+local ab
+local ad
+Tab:AddToggle({
+	Name = "Infinite Ki",
+	Default = false,
+	Callback = function(Value)
+	im = Value
+	end    
+})
+Tab:AddToggle({
+	Name = "Auto Deposit",
+	Default = false,
+	Callback = function(Value)
+	ad = Value
+	end    
+})
+Tab:AddToggle({
+	Name = "Auto Buy",
+	Default = false,
+	Callback = function(Value)
+	ab = Value
+	end    
+})
+game:GetService("RunService").Heartbeat:Connect(function()
+    if ad == true then
+        local args = {
+    [1] = "Depositar"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Pasante:FireServer(unpack(args))
+
+        end
+end)
+game:GetService("RunService").Heartbeat:Connect(function()
+if ab == true then
+    local args = {
+    [1] = "ComprarTick",
+    [2] = math.huge
+}
+
+game:GetService("ReplicatedStorage").Remotes.Pasante:FireServer(unpack(args))
+
+    end
+end)
+game:GetService("RunService").Heartbeat:Connect(function()
+    if im == true then
+        local args = {
+    [1] = "Agarrado",
+    [2] = "Values",
+    [3] = "20"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Pasante:FireServer(unpack(args))
+    end
+end)
+end

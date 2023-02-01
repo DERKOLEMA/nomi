@@ -1,0 +1,123 @@
+if game.GameId == 648454481 then
+		local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
+_G.Speedamt = 0
+local Speed = false
+local wow = Instance.new("Part")
+wow.Anchored = true
+wow.Parent = game:GetService("Workspace")
+wow.Transparency = 1
+
+wow.Position = Vector3.new(914, -1, 911)
+wow.Size = Vector3.new(10000000000000000,0.1, 10000000000000)
+game:GetService("RunService").RenderStepped:Connect(function()
+    if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
+        local aa = game:GetService("Workspace").Effects.Water.Position * Vector3.new(0,1,0) - Vector3.new(0,3.5,0)
+wow.Position = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position * Vector3.new(1,0,1) + aa
+    end
+
+
+end)
+if not shared.FDREMOTE then
+shared.FDREMOTE = game:GetService("ReplicatedStorage").Events.FallDmg
+end
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddToggle({
+	Name = "Walk On Water",
+	Default = false,
+	Callback = function(Value)
+wow.CanCollide = Value
+
+	end    
+})
+Tab:AddToggle({
+	Name = "No Fall Damage",
+	Default = false,
+	Callback = function(Value)
+
+if Value == true then
+shared.FDREMOTE.Parent = nil
+else
+shared.FDREMOTE.Parent = game:GetService("ReplicatedStorage")        
+end
+
+ 
+end
+
+})
+_G.TPSPEED = 1
+Tab:AddToggle({
+	Name = "Speed",
+	Default = false,
+	Callback = function(Value)
+		Speed = Value
+	end    
+})
+Tab:AddSlider({
+	Name = "Amount",
+	Min = 0,
+	Max = 75,
+	Default = 32,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "WalkSpeed",
+	Callback = function(Value)
+		_G.Speedamt = Value
+	end    
+})
+game:GetService("RunService").Heartbeat:Connect(function()
+    if Speed == true and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Humanoid then
+        game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = _G.Speedamt
+     end
+    end)
+    Tab:AddSlider({
+        Name = "Tp Speed",
+        Min = 0,
+        Max = 200,
+        Default = 32,
+        Color = Color3.fromRGB(255,255,255),
+        Increment = 1,
+        ValueName = "WalkSpeed",
+        Callback = function(Value)
+            _G.TPSPEED = Value + 1
+        end    
+    })
+    Tab:AddDropdown({
+        Name = "Tp Area",
+        Default = "...",
+        Options = {game:GetService("Workspace").Effects.Areas.Graveyard.Name, game:GetService("Workspace").Effects.Areas["Fishman Colosseum"].Name, game:GetService("Workspace").Effects.Areas["Golden City"].Name, game:GetService("Workspace").Effects.Areas["Gorilla King Territory"].Name, game:GetService("Workspace").Effects.Areas["Gravito's Battleground"].Name, game:GetService("Workspace").Effects.Areas["Heaven's Gate"].Name, game:GetService("Workspace").Effects.Areas["Lily's Gun Shop"].Name, game:GetService("Workspace").Effects.Areas["Linda's Bar"].Name, game:GetService("Workspace").Effects.Areas["Lion's Bar"].Name, game:GetService("Workspace").Effects.Areas["Logan's Lair"].Name, game:GetService("Workspace").Effects.Areas["Lucid's Mountain"].Name, game:GetService("Workspace").Effects.Areas["Malcolm's Lair"].Name, game:GetService("Workspace").Effects.Areas["Neptune's Throne"].Name, game:GetService("Workspace").Effects.Areas["Ryu's Palace"].Name, game:GetService("Workspace").Effects.Areas["Saw Shark's Lair"].Name, game:GetService("Workspace").Effects.Areas["Sky Castle"].Name, game:GetService("Workspace").Effects.Areas["Sky Castle Halls"].Name, game:GetService("Workspace").Effects.Areas["Sky Castle Throne"].Name, game:GetService("Workspace").Effects.Areas["Sky Colosseum"].Name, game:GetService("Workspace").Effects.Areas["Sky Town District 1"].Name, game:GetService("Workspace").Effects.Areas["Sky Town District 2"].Name, game:GetService("Workspace").Effects.Areas["Sky Town District 3"].Name},
+        Callback = function(Value)
+            local tween_s = game:GetService("TweenService")
+
+            local lp = game:GetService("Players").LocalPlayer
+            function bypass_teleport(targetpos)
+                if lp.Character and
+                lp.Character:FindFirstChild("HumanoidRootPart") then
+                
+                    local antifall = Instance.new("BodyVelocity")
+                    antifall.Velocity = Vector3.new(1,5,0)
+                    antifall.Parent = lp.Character.HumanoidRootPart
+                    local cf = CFrame.new(targetpos)
+                    local mag = (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - cf.Position).Magnitude
+                    local tweeninfo = TweenInfo.new(mag/_G.TPSPEED,Enum.EasingStyle.Linear)
+                    local a = tween_s:Create(lp.Character.HumanoidRootPart, tweeninfo, {CFrame=cf})
+                    a:Play()
+                    game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(3)
+                    a.Completed:wait()
+                    antifall:remove()
+               
+                end
+            end
+          
+            bypass_teleport(game:GetService("Workspace").Effects.Areas:FindFirstChild(Value).Position * Vector3.new(1,0,1) + game:GetService("Workspace").Effects.Water.Position * Vector3.new(0,1,0))
+
+            bypass_teleport(game:GetService("Workspace").Effects.Areas:FindFirstChild(Value).Position)
+
+        end    
+    })
+    
+		end

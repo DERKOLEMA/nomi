@@ -1,0 +1,250 @@
+	if game.PlaceId == 537413528 then
+		
+	-- init
+	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
+	local venyx = library.new("Statue Hub", 5013109572)
+	wait(2)
+	
+	-- themes
+	local themes = {
+		Background = Color3.fromRGB(24, 24, 24),
+		Glow = Color3.fromRGB(0, 0, 0),
+		Accent = Color3.fromRGB(10, 10, 10),
+		LightContrast = Color3.fromRGB(20, 20, 20),
+		DarkContrast = Color3.fromRGB(14, 14, 14),  
+		TextColor = Color3.fromRGB(255, 255, 255)
+	}
+	
+	-- first page
+	local page = venyx:addPage("BBFT", 5012544693)
+	local section1 = page:addSection("Main")
+	local AutoFarmjr = false
+	section1:addButton("Anti-AFK", function()
+		local vu =game:GetService('VirtualUser')
+	game:GetService('Players').LocalPlayer.Idled:connect(function()
+	vu:CaptureController()
+	vu:ClickButton2(Vector2.new())
+	end)
+	end)
+
+	section1:addButton("Respawn", function()
+		game:GetService("Players").LocalPlayer.Character.Humanoid.Health = 0
+		end)
+	
+	section1:addToggle("Auto Farm Toggle", nil, function(autofarmtoggletogbb)
+	   if autofarmtoggletogbb == false then
+	   venyx:Notify("Auto Farm Notification:", "Autofarm Will Stop After Completion...       ")
+	   end
+		
+	AutoFarmbb = autofarmtoggletogbb
+	end)
+	
+	
+	section1:addKeybind("Hide/Show GUI", Enum.KeyCode.LeftAlt, function()
+	
+		venyx:toggle()
+	end, function()
+	
+	end)
+	
+	-- second page
+	local theme = venyx:addPage("Theme", 5012544693)
+	local colors = theme:addSection("Colors")
+	
+	for theme, color in pairs(themes) do -- all in one theme changer, i know, im cool
+		colors:addColorPicker(theme, color, function(color3)
+			venyx:setTheme(theme, color3)
+		end)
+	end
+	while wait(.5) do
+		if AutoFarmbb == true then
+	
+	  
+	local teleport_table = {
+		location1 = Vector3.new(-59, 93, 124),
+		location2 = Vector3.new(-65, 90, 986),
+		location3 = Vector3.new(-71, 68, 1320),
+		
+		 location4 = Vector3.new(-73, 63, 1385),
+		  
+		 location5 = Vector3.new(-79, 91, 1972),
+		 location6 = Vector3.new(-79, 91, 2080),
+		 location7 = Vector3.new(-81, 91, 2190),
+		 location8 = Vector3.new(-84, 116, 2638),
+		 location9 = Vector3.new(-69, 116, 2861),
+		 location10 = Vector3.new(-69, 116, 2952),
+		 location11 = Vector3.new(-69, 116, 3604),
+		 location12 = Vector3.new(-69, 116, 3687),
+		 location13 = Vector3.new(-69, 116, 4122),
+		 location14 = Vector3.new(-70, 116, 4402),
+		 location15 = Vector3.new(-70, 116, 4480),
+		 location16 = Vector3.new(-70, 116, 4863),
+		 location17 = Vector3.new(-70, 116, 5102),
+		 location18 = Vector3.new(-70, 116, 5289),
+		 location19 = Vector3.new(-58, 116, 5724),
+		 location20 = Vector3.new(-61, 116, 5921),
+		 location21 = Vector3.new(-61, 116, 6050),
+		 location22 = Vector3.new(-59, 116, 6392),
+		 location23 = Vector3.new(-58, 116, 6701),
+		 location24 = Vector3.new(-58, 116, 6808),
+		 location25 = Vector3.new(-81, 116, 7464),
+	   location26 = Vector3.new(-87, 116, 7559),
+	   location27 = Vector3.new(-56, 116, 8076),
+	   location28 = Vector3.new(-56, 116, 8250),
+		location29 = Vector3.new(-56, -363, 9493)
+	
+	}
+	
+	local tween_s = game:GetService("TweenService")
+	local tweeninfo = TweenInfo.new(.5,Enum.EasingStyle.Linear)
+	local lp = game:GetService("Players").LocalPlayer
+	function bypass_teleport(v)
+		if lp.Character and
+		lp.Character:FindFirstChild("HumanoidRootPart") then
+			local antifall = Instance.new("BodyVelocity")
+			antifall.velocity = Vector3.new(0,0,0)
+			antifall.Parent = lp.Character.HumanoidRootPart
+			local cf = CFrame.new(v)
+			local a = tween_s:Create(lp.Character.HumanoidRootPart, tweeninfo, {CFrame=cf})
+			a:Play()
+			a.Completed:wait()
+			antifall:remove()
+		end
+	end
+	local antifall = Instance.new("BodyVelocity")
+			antifall.velocity = Vector3.new(0,0,0)
+			antifall.Parent = lp.Character.HumanoidRootPart
+			if lp.Character:FindFirstChild("HumanoidRootPart") then
+	lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location1)
+	wait(.3)
+	end
+	if success == false then
+		end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location2)
+	wait(.3)
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location3)
+	wait(.3)
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	bypass_teleport(teleport_table.location4)
+	wait(.3)
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location5)
+	wait(.3)
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location6)
+	wait(.3)
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	
+	bypass_teleport(teleport_table.location7)
+	wait(.3)
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location8)
+	wait(.3)
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location9)
+	wait(.3)
+	
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	
+	bypass_teleport(teleport_table.location10)
+	wait(.3)
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location11)
+	wait(.3)
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location12)
+	wait(.3)
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	bypass_teleport(teleport_table.location13)
+	wait(.3)
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location14)
+	wait(.3)
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location15)
+	wait(.3)
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	bypass_teleport(teleport_table.location16)
+	wait(.3)
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location17)
+	wait(.3)
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location18)
+	wait(.3)
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	bypass_teleport(teleport_table.location19)
+	wait(.3)
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location20)
+	wait(.3)
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location21)
+	wait(.3)
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	bypass_teleport(teleport_table.location22)
+	wait(.3)
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location23)
+	wait(.3)
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location24)
+	wait(.3)
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	bypass_teleport(teleport_table.location25)
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	wait(.3)
+		end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location26)
+	wait(.3)
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location27)
+	wait(.3)
+	end
+	 if lp.Character:FindFirstChild("HumanoidRootPart") then
+	bypass_teleport(teleport_table.location28)
+	lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location29)
+	end
+	repeat wait() until lp.Character
+	rconsolename("STATUE HUB BBFT AUTOFARM")
+	
+	wait(4)
+	repeat wait() until lp.Character
+	rconsoleprint("@@MAGENTA@@")
+	local currentgold = game:GetService("Players").LocalPlayer.Data.Gold.Value
+	rconsoleprint(" Successfully Made It To The End, Current Gold: ")
+	rconsoleprint(currentgold)
+	end
+	end
+	
+	-- load
+	venyx:SelectPage(venyx.pages[1], true)
+	end

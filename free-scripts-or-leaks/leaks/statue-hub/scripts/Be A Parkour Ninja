@@ -1,0 +1,104 @@
+if game.PlaceId == 147848991 then
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
+local Tab = Window:MakeTab({
+	Name = "Combat",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local tk
+local aurarange = 20
+local aura = false
+Tab:AddToggle({
+	Name = "Kill Aura",
+	Default = false,
+	Callback = function(Value)
+	aura = Value
+	end    
+})
+Tab:AddToggle({
+	Name = "Tp Kunai",
+	Default = false,
+	Callback = function(Value)
+	tk = Value
+	end    
+})
+Tab:AddSlider({
+	Name = "Aura Reach",
+	Min = 0,
+	Max = 20,
+	Default = 20,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Studs/Second",
+	Callback = function(Value)
+	aurarange = Value
+	end    
+})
+
+local M = Window:MakeTab({
+	Name = "Movement",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+M:AddSlider({
+	Name = "WalkSpeed",
+	Min = 0,
+	Max = 100,
+	Default = 16,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Studs/Second",
+	Callback = function(Value)
+		if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Humanoid then
+			game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = Value
+		end
+	end    
+})
+local target
+game:GetService("RunService").Heartbeat:Connect(function() 
+	for i, v in pairs(game:GetService("Players"):GetChildren()) do
+		if v ~= game:GetService("Players").LocalPlayer and v.Character and v.Character.HumanoidRootPart then
+target = v.Character.HumanoidRootPart
+		end
+
+	end
+end)
+game:GetService("RunService").Heartbeat:Connect(function() 
+for i, v in pairs(game:GetService("Workspace")["_Projectiles"]:GetChildren()) do
+if v.Name ~= "Script" and tk == true  then
+v.CFrame = target.CFrame
+end
+end
+
+end)
+M:AddSlider({
+	Name = "JumpPower",
+	Min = 0,
+	Max = 100,
+	Default = 16,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Studs/Second",
+	Callback = function(Value)
+		if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Humanoid then
+			game:GetService("Players").LocalPlayer.Character.Humanoid.JumpPower = Value
+		end
+	end    
+})
+game:GetService("RunService").RenderStepped:Connect(function()
+    	if task.wait(.5) then
+
+	for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+		if aura == true and game:GetService("Players").LocalPlayer.Character and  v ~= game:GetService("Players").LocalPlayer.Character and v:FindFirstChildOfClass("Humanoid") and v:FindFirstChildOfClass("Humanoid").Health > 0 and v:FindFirstChild("HumanoidRootPart") and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and game:GetService("Players").LocalPlayer.Character.Humanoid.Health > 0 and  game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool") and game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").SwordScript  and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < aurarange then
+			local args = {
+		[1] = v.Humanoid,
+		[2] = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool")
+	}
+	
+	game:GetService("ReplicatedStorage").RemoteTriggers.Bolster:FireServer(unpack(args))
+	end
+		end
+		end
+end)
+end

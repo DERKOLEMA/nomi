@@ -1,0 +1,21 @@
+if game.PlaceId == 9486506804 then
+		wait(2)
+		game:GetService("RunService").RenderStepped:Connect(function()
+
+local args = {
+    [1] = workspace.Lobby.Obby.Coin,
+    [2] = false
+}
+
+game:GetService("ReplicatedStorage").Zurich_OnCoinPickUpEvent:FireServer(unpack(args))
+
+
+end)
+		for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
+    if v.Name == "TouchInterest" then
+        firetouchinterest(game:GetService("Players").LocalPlayer.Character.Head, v.Parent, 0)
+                firetouchinterest(game:GetService("Players").LocalPlayer.Character.Head, v.Parent, 1)
+
+        end
+    end
+		end

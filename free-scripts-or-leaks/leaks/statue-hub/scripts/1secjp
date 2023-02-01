@@ -1,0 +1,170 @@
+repeat wait() until game:IsLoaded()
+local aw
+local jpamt
+local wsamt
+local jp
+local farmall = false
+local ws
+local ar
+game.RunService.Heartbeat:Connect(function()
+	if ar == true then
+	game:GetService("ReplicatedStorage").RebirthEvent:FireServer()
+	end
+end)
+local selected = game.Workspace.World1
+coroutine.wrap(function()
+while wait() do
+    if aw == true and game.Players.LocalPlayer.Character ~= nil and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+task.wait(.5)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new()
+
+task.wait(.5)
+if farmall ~= true then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = selected.Win.Touch.CFrame
+
+
+firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, selected.Win.Touch, 0)
+
+firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, selected.Win.Touch, 1)
+else
+	for i, v in pairs(game.Workspace:GetChildren()) do
+		if string.match(v.Name, "World") and task.wait(.5) then
+		if game.Players.LocalPlayer.Character ~= nil and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Win.Touch.CFrame
+firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Win.Touch, 0)
+
+firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Win.Touch, 1)
+if v:FindFirstChild("ObbyTower") then 
+	 task.wait(.5)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.ObbyTower.Win.Touch.CFrame
+firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.ObbyTower.Win.Touch, 0)
+
+firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.ObbyTower.Win.Touch, 1)
+for i, v in pairs(v.VIPTower:GetDescendants()) do
+if v.Name == "Touch" then
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+	firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 0)
+
+firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 1)
+
+end
+end
+end
+		end
+		end
+		end
+    end
+end
+    end
+end)()
+game.RunService.Heartbeat:Connect(function()
+if game.Players.LocalPlayer.Character ~= nil and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") and ws == true then
+    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = wsamt
+end
+if game.Players.LocalPlayer.Character ~= nil and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") and jp == true then
+    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = jpamt
+end
+end)
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+local Window = Rayfield:CreateWindow({
+	Name = "Statue Hub",
+	LoadingTitle = "Statue Hub",
+	LoadingSubtitle = "made by wowzers!#0560",
+	ConfigurationSaving = {
+		Enabled = false,
+		FolderName = nil, -- Create a custom folder for your hub/game
+		FileName = "Big Hub"
+	},
+        Discord = {
+        	Enabled = false,
+        	Invite = "sirius", -- The Discord invite code, do not include discord.gg/
+        	RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+        },
+	KeySystem = false, -- Set this to true to use our key system
+	KeySettings = {
+		Title = "Sirius Hub",
+		Subtitle = "Key System",
+		Note = "Join the discord (discord.gg/sirius)",
+		FileName = "SiriusKey",
+		SaveKey = true,
+		GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+		Key = "Hello"
+	}
+})
+local Tab = Window:CreateTab("Farming", 4483362458) -- Title, Image
+local PLR = Window:CreateTab("Player", 4483362458) -- Title, Image
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Win",
+	CurrentValue = false,
+	Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+	aw = Value
+	end,
+})
+local worlds = {"All"}
+for i, v in pairs(game.Workspace:GetChildren()) do
+if string.match(v.Name, "World") then
+table.insert(worlds, v.Name)
+end
+end
+
+local Dropdown = Tab:CreateDropdown({
+	Name = "World Select",
+	Options = worlds,
+	CurrentOption = "World1",
+	Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Option)
+		farmall = false
+if Option ~= "All" then
+selected = game:GetService("Workspace"):FindFirstChild(Option)
+else
+	farmall = true
+end
+	end,
+})
+local Toggle = Tab:CreateToggle({
+	Name = "Auto Rebirth",
+	CurrentValue = false,
+	Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+	ar = Value
+	end,
+})
+local Toggle = PLR:CreateToggle({
+	Name = "WalkSpeed",
+	CurrentValue = false,
+	Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+	ws = Value
+	end,
+})
+local Toggle = PLR:CreateToggle({
+	Name = "JumpPower",
+	CurrentValue = false,
+	Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+	jp = Value
+	end,
+})
+local Slider = PLR:CreateSlider({
+	Name = "JumpPower",
+	Range = {32, 10000},
+	Increment = 10,
+	Suffix = "Studs",
+	CurrentValue = 32,
+	Flag = "", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+	jpamt = Value
+	end,
+})
+local Slider = PLR:CreateSlider({
+	Name = "WalkSpeed",
+	Range = {32, 10000},
+	Increment = 10,
+	Suffix = "Studs",
+	CurrentValue = 32,
+	Flag = "", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+	wsamt = Value
+	end,
+})

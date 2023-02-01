@@ -1,0 +1,176 @@
+if game.PlaceId == 10219766033 then
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local ka = false
+local ii = false
+local esp = false
+_G.Speedamt = 16
+local Tab = Window:MakeTab({
+    Name = "Main",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+local R = Window:MakeTab({
+    Name = "Render",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+Tab:AddToggle({
+	Name = "Teleport To Players (good for killer)",
+	Default = false,
+	Callback = function(Value)
+ka = Value
+	end    
+})
+
+Tab:AddToggle({
+	Name = "Insta Interact",
+	Default = false,
+	Callback = function(Value)
+ii = Value
+	end    
+})
+Tab:AddTextbox({
+	Name = "Tp To Item",
+	Default = "...",
+	TextDisappear = true,
+	Callback = function(a)
+		
+        local prox 
+        local selected = a
+        for i, v in pairs(game:GetService("Workspace").Items:GetDescendants()) do
+            if v.Parent.Name == selected or v.Parent.Parent.Name == selected and v.Name == "ItemPrompt"  then
+                
+                 prox = v
+                
+                end
+        end
+  
+        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = prox.Parent.CFrame
+
+	end	  
+})
+
+R:AddButton({
+	Name = "Killer Esp",
+	Callback = function()
+	    	    game:GetService("RunService").Heartbeat:Connect(function()
+
+      	local h = Instance.new("Highlight")
+if game:GetService("Workspace"):FindFirstChild("Happy")  then
+h.Parent = game:GetService("Workspace"):FindFirstChild("Happy")
+end
+if game:GetService("Workspace"):FindFirstChild("MovingMop") then
+h.Parent = game:GetService("Workspace"):FindFirstChild("MovingMop")
+end
+end)
+  	end    
+})
+R:AddButton({
+	Name = "Tp To Trapdoor",
+	Callback = function()
+	local trapdoor = nil
+for i, v in pairs(game:GetService("Workspace").Trapdoors:GetChildren()) do
+   if v.EscapePart then
+       
+   trapdoor = v.EscapePart
+   end
+end
+
+if trapdoor ~= nil and game:GetService("Players").LocalPlayer.Character then
+    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame =  game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,31,0)
+local tween_s = game:GetService("TweenService")
+
+local lp = game:GetService("Players").LocalPlayer
+function bypass_teleport(v)
+    if lp.Character and
+    lp.Character:FindFirstChild("HumanoidRootPart") then
+    
+        local antifall = Instance.new("BodyVelocity")
+        antifall.Velocity = Vector3.new(0,5,0)
+        antifall.Parent = lp.Character.HumanoidRootPart
+        local cf = CFrame.new(v)
+        local mag = (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - cf.Position).Magnitude
+        local tweeninfo = TweenInfo.new(mag/15,Enum.EasingStyle.Linear)
+        local a = tween_s:Create(lp.Character.HumanoidRootPart, tweeninfo, {CFrame=cf})
+        a:Play()
+        a.Completed:wait()
+   
+    end
+end
+bypass_teleport(trapdoor.Position + Vector3.new(0,31,0))
+ game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,-31,0)
+else
+    OrionLib:MakeNotification({
+	Name = "Tp Trapdoor",
+	Content = "Could Not Find Trapdoors",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end
+  	end    
+})
+R:AddButton({
+	Name = "Scanner Esp",
+	Callback = function()
+	    game:GetService("RunService").Heartbeat:Connect(function()
+for i, v in pairs(game:GetService("Workspace").Scanners:GetChildren()) do
+    local h = Instance.new("Highlight")
+    h.Parent = v
+end
+end)
+  	end    
+})
+R:AddButton({
+	Name = "Trapdoor Esp",
+	Callback = function()
+	    game:GetService("RunService").Heartbeat:Connect(function()
+for i, v in pairs(game:GetService("Workspace").Trapdoors:GetChildren()) do
+    local h = Instance.new("Highlight")
+    h.Parent = v
+end
+end)
+  	end    
+})
+Tab:AddToggle({
+	Name = "Speed",
+	Default = false,
+	Callback = function(Value)
+		Speed = Value
+	end    
+})
+Tab:AddSlider({
+	Name = "Amount",
+	Min = 0,
+	Max = 25,
+	Default = 16,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "WalkSpeed",
+	Callback = function(Value)
+		_G.Speedamt = Value
+	end    
+})
+game:GetService("RunService").Heartbeat:Connect(function()
+for i, v in pairs(game:GetService("Players"):GetChildren()) do
+    if v.Character and v.Character.HumanoidRootPart and ka == true then
+    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Character.HumanoidRootPart.CFrame
+    end
+
+end
+end)
+
+
+game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(function(interactprompt)
+if ii == true then
+			fireproximityprompt(interactprompt, 1)
+	end
+end)
+game:GetService("RunService").Heartbeat:Connect(function()
+if Speed == true and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Humanoid then
+    game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = _G.Speedamt
+    else
+         game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = 16
+        end
+end)
+end

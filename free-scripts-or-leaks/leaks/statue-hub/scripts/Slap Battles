@@ -1,0 +1,111 @@
+if game.PlaceId == 6403373529 then
+		wait(2)
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
+local nk = false
+local av = false
+local antivoid = Instance.new("Part")
+antivoid.Parent = game:GetService("Workspace")
+antivoid.Position = Vector3.new(-4.27, -58.17, 28.63)
+antivoid.Anchored = true
+antivoid.Transparency = 1
+antivoid.Size = Vector3.new(707, 1, 745)
+antivoid.CanCollide = false
+antivoid.Touched:Connect(function(toucher)
+    if game:GetService("Players").LocalPlayer.Character and av == true and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart and toucher == game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
+        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(27, -5, 10)
+        OrionLib:MakeNotification({
+	Name = "Anti Void Notification: ",
+	Content = "Are You Serious Right Neow Bro",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+    end
+    end)
+local ka = false
+local nw = false
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddToggle({
+	Name = "Kill Aura",
+	Default = false,
+	Callback = function(Value)
+	ka = Value
+	end    
+})
+Tab:AddToggle({
+	Name = "Anti Void",
+	Default = false,
+	Callback = function(Value)
+	av = Value
+	end    
+})
+Tab:AddToggle({
+	Name = "No Pusher Wall",
+	Default = false,
+	Callback = function(Value)
+	nw = Value
+	end    
+})
+Tab:AddToggle({
+	Name = "No Knockback",
+	Default = false,
+	Callback = function(Value)
+	nk = Value
+	end    
+})
+
+game:GetService("RunService").RenderStepped:Connect(function()
+if game:GetService("Workspace"):FindFirstChild("wall") and nw == true then
+    game:GetService("Workspace").wall.Transparency = .5
+      game:GetService("Workspace").wall.CanCollide = false
+    end
+end)
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    if nk == true then
+    
+if game:GetService('Players').LocalPlayer.Character and game:GetService('Players').LocalPlayer.Character:FindFirstChild("FakePart Left Leg") then
+   game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = true
+   game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
+elseif game:GetService('Players').LocalPlayer.Character and not game:GetService('Players').LocalPlayer.Character:FindFirstChild("FakePart Left Leg") then
+      game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = false
+end
+end
+end)
+
+
+OrionLib:Init()
+while wait(.3) do
+
+    for i, v in pairs(game:GetService("Players"):GetChildren()) do
+if ka == true and v~= game:GetService("Players").LocalPlayer and v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
+        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").b:FireServer(unpack(args))
+        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").FlashHit:FireServer(unpack(args))
+        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").JetHit:FireServer(unpack(args))
+        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").WarpHt:FireServer(unpack(args))
+        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").BullHit:FireServer(unpack(args))
+        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").SnowHit:FireServer(unpack(args))
+        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").DiamondHit:FireServer(unpack(args))
+        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").GhostHit:FireServer(unpack(args))
+        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").PusherHit:FireServer(unpack(args))
+        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").PlagueHit:FireServer(unpack(args))
+        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").bobhit:FireServer(unpack(args))
+        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").springhit:FireServer(unpack(args))
+        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").CustomHit:FireServer(unpack(args))
+        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").WormHit:FireServer(unpack(args))
+        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").GeneralHit:FireServer(unpack(args))
+
+
+
+
+
+        end
+    end
+    end
+end
+

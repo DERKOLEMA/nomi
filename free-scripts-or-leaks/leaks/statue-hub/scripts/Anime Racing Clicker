@@ -1,0 +1,50 @@
+if game.PlaceId == 10714365287 then
+local c = function()
+    game:GetService("ReplicatedStorage").Knit.Services.ClickerService.RF.PlayerClick:InvokeServer()
+end
+local w = function()
+    for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
+        if v.Name == "Checkpoint" and v.ClassName ~= "ParticleEmitter" and task.wait(.0001) and  game.Players.LocalPlayer.Character and  game.Players.LocalPlayer.Character.HumanoidRootPart then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+            
+        end
+    end
+end
+local aw
+local ac
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
+local Tab = Window:MakeTab({
+	Name = "Farming",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+OrionLib:MakeNotification({
+	Name = "Made By wowzers!#0560",
+	Content = "Thanks For Using Statue Hub",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+Tab:AddToggle({
+	Name = "Auto Clicker",
+	Default = false,
+	Callback = function(Value)
+	ac = Value
+	end    
+})
+Tab:AddToggle({
+	Name = "Auto Win",
+	Default = false,
+	Callback = function(Value)
+	aw = Value
+	end    
+})
+game:GetService('RunService').Heartbeat:Connect(function()
+    if ac == true then
+        c()
+        end
+    end)
+while task.wait(5) and aw == true do
+    w()
+end
+end

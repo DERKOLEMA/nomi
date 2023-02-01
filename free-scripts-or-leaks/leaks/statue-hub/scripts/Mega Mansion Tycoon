@@ -1,0 +1,71 @@
+if game.PlaceId == 8328351891 then
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
+local Tab = Window:MakeTab({
+	Name = "Farming",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local movement = Window:MakeTab({
+	Name = "Movement",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+movement:AddSlider({
+    Name = "WalkSpeed",
+    Min = 0,
+    Max = 100,
+    Default = 16,
+    Color = Color3.fromRGB(255,255,255),
+    Increment = 1,
+    ValueName = "Studs/Second",
+    Callback = function(Value)
+		if   game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Humanoid then
+			game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = Value
+		end
+
+
+    end    
+})
+local init = Window:MakeTab({
+	Name = "Initialization",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local farmnoti = Tab:AddParagraph("Please Initialize The Plot To Continue","Unable To Find Plot")
+local plot
+init:AddButton({
+	Name = "Button!",
+	Callback = function()
+		for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do
+			if v.Name == "Owner" and v.Value == game:GetService("Players").LocalPlayer then
+				plot = v.Parent
+				
+				OrionLib:MakeNotification({
+					Name = "Succesfully Found Plot",
+					Content = "Plot Name: "..plot.Name,
+					Image = "rbxassetid://4483345998",
+					Time = 5
+				})
+				local ac
+				Tab:AddToggle({
+					Name = "Auto Collect",
+					Default = false,
+					Callback = function(Value)
+						ac = Value
+					end    
+				})
+				farmnoti:Set("Farming Features Now Available.".." Current Plot: "..plot.Name, "Current Plot"..plot.Name)
+game:GetService("RunService").RenderStepped:Connect(function()
+if ac == true and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
+firetouchinterest(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, plot.Essentials.Giver, 0)
+firetouchinterest(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, plot.Essentials.Giver, 1)
+
+end
+end)
+				end
+				end
+  	end    
+})
+end

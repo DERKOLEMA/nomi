@@ -1,0 +1,72 @@
+if game.PlaceId == 10425191433 then
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local infmoney
+
+Tab:AddToggle({
+	Name = "Inf Money",
+	Default = false,
+	Callback = function(Value)
+		if Value == true then
+		OrionLib:MakeNotification({
+			Name = "Infinite Money",
+			Content = "Use This Then Earn Some Money And It Should Give You Infinite Money",
+			Image = "rbxassetid://4483345998",
+			Time = 5
+		})
+	end
+		infmoney = Value
+	end    
+})
+Tab:AddButton({
+	Name = "Buy Areas",
+	Callback = function()
+		local args = {[1] = "1"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
+		local args = {[1] = "2"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
+		local args = {[1] = "3"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
+		local args = {[1] = "4"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
+		local args = {[1] = "5"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
+		local args = {[1] = "6"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
+		local args = {[1] = "7"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
+		local args = {[1] = "8"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
+		local args = {[1] = "9"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
+		local args = {[1] = "10"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
+		local args = {[1] = "11"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
+		local args = {[1] = "12"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
+		local args = {[1] = "13"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
+		local args = {[1] = "14"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
+		local args = {[1] = "15"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
+		
+  	end    
+})
+local hook
+hook = hookmetamethod(game, "__namecall", newcclosure(function(self, ...)
+    local Args = {...}
+   
+    local method = getnamecallmethod()
+    if not checkcaller() and self.Name == "Finish" and method == "InvokeServer" and infmoney == true then
+
+  for i, v in pairs(Args[2]) do
+   Args[2] = {
+       ["touched"] = {},
+       ["distance"] = math.huge
+   }
+      end
+
+
+
+
+
+
+       return hook(self, table.unpack(Args));
+
+    end
+    return hook(self, ...)
+    
+end))
+end
