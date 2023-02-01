@@ -1,5 +1,4 @@
 Powered By [Nomi](https://github.com/Duderpast/nomi) Community
-
 ```lua
 -- // Loader Script
 loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Duderpast/nomi/main/sg-hub/sg-hub-loader.lua"))()
