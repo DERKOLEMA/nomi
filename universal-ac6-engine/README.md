@@ -30,6 +30,6 @@ ___
 
 [Sound]
   * Sound ID Input
-  * Sound Speed
+  * Sound Play
   * Sound Pitch
   * Sound Volume
