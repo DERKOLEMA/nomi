@@ -8,7 +8,7 @@ ___
 # Universal
 
 [Main]
-  * AC6 Version Detection
+  * AC6 Detection
   * Target Selection
 
 [Players]
