@@ -20,7 +20,6 @@ ___
   * Remove Clothes
   * Trip
   * Remove Tools
-  * Feature
 
 [Server]
   * Shutdown
