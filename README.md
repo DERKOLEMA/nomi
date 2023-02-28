@@ -6,7 +6,7 @@
       <img src="icons/github-icon.svg" alt="GitHub Releases" />
      </a>   
    <!-- Discord -->
-        <a href="https://discord.gg/SjppDCSJyr">
+        <a href="https://discord.gg/vRZD8BFm97">
             <img src="icons/discord-icon.svg" alt="Discord Server Invite" />
         </a>     
             </p>
